@@ -1,6 +1,5 @@
 package com.unla.entities;
 
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,7 +27,7 @@ public class Edificio {
 	private String nombre;
 	
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="edificio")
-	private Set<Dispositivo> dispositivos = new HashSet<>();
+	private Set<Dispositivo> dispositivos = new HashSet<Dispositivo>();
 
 	public Edificio() {
 		super();

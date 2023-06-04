@@ -1,0 +1,50 @@
+package com.unla.services.implementation;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import com.unla.entities.Edificio;
+import com.unla.repositorys.IEdificioRepository;
+import com.unla.services.IEdificioService;
+
+@Service("edificioService")
+public class EdificioService implements IEdificioService{
+
+	@Autowired
+	@Qualifier("edificioRepository")
+	private IEdificioRepository edificioRepository;
+
+	@Override
+	public List<Edificio> getAll() {
+		return edificioRepository.findAll();
+	}
+
+	@Override
+	public Edificio findById(int id) {
+		return edificioRepository.findById(id);
+	}
+
+	@Override
+	public Edificio findByName(String nombre) {
+		return edificioRepository.findByName(nombre);
+	}
+
+	@Override
+	public Edificio insertOrUpdate(Edificio d) {
+		Edificio edificioNuevo = edificioRepository.save(d);
+		return edificioNuevo;
+	}
+
+	@Override
+	public boolean remove(int id) {
+		try {
+			edificioRepository.deleteById(id);
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+	}
+}
