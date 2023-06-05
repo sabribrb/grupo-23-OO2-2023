@@ -8,9 +8,9 @@ public interface IDispositivoService {
 
 	public List<Dispositivo> getAll();
 
-	public Dispositivo findById(int id);
+	public Dispositivo findByIdDispositivo(int idDispositivo);
 
-	public Dispositivo findByName(String nombre);
+	//public Dispositivo findByNombreDispositivo(String nombre);
 
 	public Dispositivo insertOrUpdate(Dispositivo d);
 

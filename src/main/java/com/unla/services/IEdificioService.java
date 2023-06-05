@@ -8,9 +8,9 @@ public interface IEdificioService {
 
 	public List<Edificio> getAll();
 
-	public Edificio findById(int id);
+	public Edificio findByIdEdificio(int idEdificio);
 
-	public Edificio findByName(String nombre);
+	//public Edificio findByName(String nombre);
 
 	public Edificio insertOrUpdate(Edificio d);
 

@@ -37,8 +37,8 @@ public class Evento {
 	@Column(name="estado")
 	private boolean estado;
 	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="evento")
-	private Set<Dispositivo> dispositivos = new HashSet<>();
+	@OneToMany(fetch=FetchType.LAZY)
+	private Set<Dispositivo> dispositivos = new HashSet<Dispositivo>();
 
 	public Evento(LocalDateTime horaEvento, String descripcion, boolean estado, Set<Dispositivo> dispositivos) {
 		super();

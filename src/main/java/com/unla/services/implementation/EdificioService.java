@@ -10,7 +10,7 @@ import com.unla.entities.Edificio;
 import com.unla.repositorys.IEdificioRepository;
 import com.unla.services.IEdificioService;
 
-@Service("edificioService")
+@Service
 public class EdificioService implements IEdificioService{
 
 	@Autowired
@@ -23,14 +23,14 @@ public class EdificioService implements IEdificioService{
 	}
 
 	@Override
-	public Edificio findById(int id) {
-		return edificioRepository.findById(id);
+	public Edificio findByIdEdificio(int idEdificio) {
+		return edificioRepository.findByIdEdificio(idEdificio);
 	}
 
-	@Override
+	/*@Override
 	public Edificio findByName(String nombre) {
 		return edificioRepository.findByName(nombre);
-	}
+	}*/
 
 	@Override
 	public Edificio insertOrUpdate(Edificio d) {
