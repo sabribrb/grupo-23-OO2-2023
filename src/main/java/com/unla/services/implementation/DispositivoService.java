@@ -11,7 +11,7 @@ import com.unla.repositorys.IDispositivoRepository;
 import com.unla.services.IDispositivoService;
 
 
-@Service("dispositivoService")
+@Service
 public class DispositivoService implements IDispositivoService {
 
 	@Autowired
@@ -23,15 +23,11 @@ public class DispositivoService implements IDispositivoService {
 		return dispositivoRepository.findAll();
 	}
 
-	@Override
-	public Dispositivo findById(int id) {
-		return dispositivoRepository.findById(id);
-	}
 
-	@Override
-	public Dispositivo findByName(String nombre) {
-		return dispositivoRepository.findByName(nombre);
-	}
+	/*@Override
+	public Dispositivo findByNombreDispositivo(String nombre) {
+		return dispositivoRepository.findByNombreDispositivo(nombre);
+	}*/
 
 	@Override
 	public Dispositivo insertOrUpdate(Dispositivo d) {
@@ -48,6 +44,11 @@ public class DispositivoService implements IDispositivoService {
 			return false;
 		}
 	}
-	
+
+
+	@Override
+	public Dispositivo findByIdDispositivo(int idDispositivo) {
+		return dispositivoRepository.findByIdDispositivo(idDispositivo);
+	}
 	
 }
