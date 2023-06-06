@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.unla.entities.Dispositivo;
-import com.unla.repositorys.IDispositivoRepository;
+import com.unla.repositories.IDispositivoRepository;
 import com.unla.services.IDispositivoService;
 
 

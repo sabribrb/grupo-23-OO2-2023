@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.unla.entities.Edificio;
-import com.unla.repositorys.IEdificioRepository;
+import com.unla.repositories.IEdificioRepository;
 import com.unla.services.IEdificioService;
 
 @Service
