@@ -1,16 +1,20 @@
 package com.unla.entities;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,28 +36,12 @@ public abstract class Dispositivo {
 	@CreationTimestamp
 	protected LocalDateTime creacion;
 	
-<<<<<<< Updated upstream
-	public Dispositivo(String nombre, LocalDateTime creacion) {
-		super();
-		this.nombre = nombre;
-		this.creacion = creacion;
-	}
-
-	public Dispositivo(int id, String nombre, LocalDateTime creacion) {
-		super();
-		this.idDispositivo = id;
-		this.nombre = nombre;
-		this.creacion = creacion;
-	}
-
-=======
 	@Column(name="activo")
 	protected boolean activo;
 
 	@OneToMany(fetch=FetchType.LAZY, mappedBy = "dispositivo")
 	protected Set<Evento> eventos= new HashSet<Evento>();
 	
->>>>>>> Stashed changes
 	public Dispositivo() {
 		super();
 	}

@@ -1,4 +1,4 @@
-package com.unla.repositorys;
+package com.unla.repositories;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
