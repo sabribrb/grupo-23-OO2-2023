@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TP OO2</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <script src="./js/app.js"></script>
+  <header>
+    <!-- Menu de navegacion -->
+    <nav class="navbar navbar-expand-lg navbar-dark w-100" style="background-color: rgb(46,51,57); overflow: hidden;
+    background-color: #333; position: fixed; top: 0;z-index: 5; padding-left: 7%; padding-right: 7%;">
+      <a class="navbar-logo" href="#">
+        <img src="./img-tp/logoUnla.png">
+      </a>
+      <a class="navbar-brand" style="margin-right: auto;" href="#">UNLa</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="justify-content: end;">
+        <div class="navbar-nav">
+          <a class="nav-link active" href="#">La universidad <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#seccion-dispositivos">Los dispositivos</a>
+          <a class="nav-link" id="boton-nav" href="#">Usuario</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <article>
+        <!-- Carrusel -->
+        <div id="carouselExampleIndicators" class="carousel slide d-flex" data-ride="carousel">
+          <ol class="carousel-indicators" style="z-index: 2;">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" id="Imagen-carrousel" src="./img-tp/unla1.jpg" width="1080" height="600"
+                alt="First slide">
+              <div class="carousel-caption d-md-block" id="texto-carrousel">
+                <h2>UNLa</h2>
+                <p class="w-50 ml-auto">Llegan por primera vez los dispositivos IOT a la UNLa, una universidad de Buenos Aires,
+                  ubicada en Lanus. Estos intentan crear un espacio inteligente donde diversos dispositivos
+                   (por ejemplo sensores, alarmas, cámaras inteligentes, etc) miden datos del mundo real
+                  para ejecutar acciones automáticas en el mismo. Dichas acciones deben tener un efecto
+                  positivo en la vida de las personas y el medio ambiente del lugar. Te esperamos!</p>
+                <div class="d-inline p-1">
+                  <button type="button" class="btn btn-success" id="primer-btn-corrusel">Mas información</button>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" id="Imagen-carrousel" src="./img-tp/unla2.jpg" width="1080" height="600"
+                alt="Second slide">
+              <div class="carousel-caption d-md-block" id="texto-carrousel">
+                <h2>UNLa</h2>
+                <p class="w-50 ml-auto">Llegan por primera vez los dispositivos IOT a la UNLa, una universidad de Buenos Aires,
+                  ubicada en Lanus. Estos intentan crear un espacio inteligente donde diversos dispositivos
+                   (por ejemplo sensores, alarmas, cámaras inteligentes, etc) miden datos del mundo real
+                  para ejecutar acciones automáticas en el mismo. Dichas acciones deben tener un efecto
+                  positivo en la vida de las personas y el medio ambiente del lugar. Te esperamos!</p>
+                <div class="d-inline p-1">
+                  <button type="button" class="btn btn-success" id="primer-btn-corrusel">Mas información</button>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" id="Imagen-carrousel" src="./img-tp/unla3.jpeg" width="1080" height="600"
+                alt="Third slide">
+              <div class="carousel-caption d-md-block" id="texto-carrousel">
+                <h2>UNLa</h2>
+                <p class="w-50 ml-auto">Llegan por primera vez los dispositivos IOT a la UNLa, una universidad de Buenos Aires,
+                  ubicada en Lanus. Estos intentan crear un espacio inteligente donde diversos dispositivos
+                   (por ejemplo sensores, alarmas, cámaras inteligentes, etc) miden datos del mundo real
+                  para ejecutar acciones automáticas en el mismo. Dichas acciones deben tener un efecto
+                  positivo en la vida de las personas y el medio ambiente del lugar. Te esperamos!</p>
+                <div class="d-inline p-1">
+                  <button type="button" class="btn btn-success" id="primer-btn-corrusel">Mas información</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </article>
+      <article class="container mt-3 mb-2 justify-content-center text-center" id="seccion-dispositivos">
+        <a style="font-weight: 700; line-height: 1.7rem">CONOCE LOS <p style="font-size: 35px;">DISPOSITIVOS</p></a>
+
+        <!-- Cards -->
+        <div class="row" style="justify-content: center;">
+          <div class="col-md-4 d-flex justify-content-center align-items-center">
+            <div class="shadow mb-5 bg-white rounded">
+              <div class="card" style="width: 18rem;">
+                <button class="btn" type="button"style="border: 1px solid rgb(129, 11, 11);padding: 0%;">
+                <img src="./img-tp/estacionamiento.jpg" class="card-img-top" alt="...">
+
+                <div class="card-body text-left">
+                  <span class="badge badge-secondary">Negocios</span>
+                  <span class="badge badge-danger">Startups</span>
+                  <h4 class="font-weight-bold">Estacionamientos</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                </div>
+              </div>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex justify-content-center align-items-center">
+            <div class="shadow mb-5 bg-white rounded">
+              <div class="card" style="width: 18rem;">
+                <button class="btn" type="button"style="border: 1px solid rgb(129, 11, 11);padding: 0%;">
+                <img src="./img-tp/baños.jpg" class="card-img-top" alt="...">
+                <div class="card-body text-left">
+                  <span class="badge badge-secondary">Negocios</span>
+                  <span class="badge badge-danger">Startups</span>
+                  <h4 class="font-weight-bold">Baños</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                </div>
+              </div>
+            </button>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex justify-content-center align-items-center">
+            <div class="shadow mb-5 bg-white rounded">
+              <div class="card" style="width: 18rem;">
+                <button class="btn" type="button" style="border: 1px solid rgb(129, 11, 11);padding: 0%;">
+                <img src="./img-tp/alumbrado.jpg" class="card-img-top" alt="...">
+                <div class="card-body text-left">
+                  <span class="badge badge-secondary">Negocios</span>
+                  <span class="badge badge-danger">Startups</span>
+                  <h4 class="font-weight-bold">Alumbrado</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                </div>
+              </div>
+            </button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+    <!--Footer-->
+    <footer class="text-center text-start" style="background-color: rgb(46,51,57); font-size: small">
+      <div class="container" style="padding-top: 2%; padding-bottom: 1%;">
+        <div class="row">
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0 text-wrap" style="padding: 0;">
+            <h5 class="text-white">Preguntas Frecuentes</h5>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0" style="padding: 0;">
+            <h5 class="text-white">Contáctanos</h5>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0" style="padding: 0;">
+            <h5 class="text-white">Conferencia</h5>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0" style="padding: 0;">
+            <h5 class="text-white">Privacidad</h5>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0" style="padding: 0;">
+            <h5 class="text-white">Estudiantes</h5>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0 text-wrap" style="padding: 0;">
+            <h5 class="text-white">Términos y condiciones</h5>
+          </div>
+        </div>
+      </div>
+    </footer>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+      integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+      crossorigin="anonymous"></script>
+  
+  </body>
+  
+  </html>
+  

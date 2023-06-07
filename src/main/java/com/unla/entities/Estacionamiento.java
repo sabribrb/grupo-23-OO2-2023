@@ -1,6 +1,7 @@
 package com.unla.entities;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,14 +17,16 @@ public class Estacionamiento extends Dispositivo{
 	@Column(name="nroPlaza")
 	private int nroPlaza;
 
-	public Estacionamiento(String nombre, LocalDateTime creacion, int nroPlaza) {
-		super(nombre, creacion);
+	public Estacionamiento(int idDispositivo, String nombre, LocalDateTime creacion, boolean activo,
+			Set<Evento> eventos, int nroPlaza) {
+		super(idDispositivo, nombre, creacion, activo, eventos);
 		this.nroPlaza = nroPlaza;
 	}
 
-	public Estacionamiento(String nombre, LocalDateTime creacion) {
-		super(nombre, creacion);
+	public Estacionamiento(int idDispositivo, String nombre, LocalDateTime creacion, boolean activo,
+			Set<Evento> eventos) {
+		super(idDispositivo, nombre, creacion, activo, eventos);
 	}
-	
+
 	
 }

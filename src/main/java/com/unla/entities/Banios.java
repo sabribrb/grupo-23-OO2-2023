@@ -1,6 +1,7 @@
 package com.unla.entities;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,14 +17,16 @@ public class Banios extends Dispositivo {
 	@Column(name="numBanios")
 	private int numBanios;
 
-	public Banios(String nombre, LocalDateTime creacion, int numBanios) {
-		super(nombre, creacion);
+	public Banios(int idDispositivo, String nombre, LocalDateTime creacion, boolean activo, Set<Evento> eventos,
+			int numBanios) {
+		super(idDispositivo, nombre, creacion, activo, eventos);
 		this.numBanios = numBanios;
 	}
 
-	public Banios(String nombre, LocalDateTime creacion) {
-		super(nombre, creacion);
+	public Banios(int idDispositivo, String nombre, LocalDateTime creacion, boolean activo, Set<Evento> eventos) {
+		super(idDispositivo, nombre, creacion, activo, eventos);
 	}
 
+	
 	
 }

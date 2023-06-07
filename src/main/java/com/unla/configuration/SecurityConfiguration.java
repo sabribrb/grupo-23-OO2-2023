@@ -23,8 +23,7 @@ public class SecurityConfiguration {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests()
-				.requestMatchers("/css/*", "/imgs/*", "/js/*", "/vendor/bootstrap/css/*",
-						"/vendor/jquery/*", "/vendor/bootstrap/js/*").permitAll()
+				.requestMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/img-tp/**").permitAll()
 				.anyRequest().authenticated()
 			.and()
 				.formLogin().loginPage("/login").loginProcessingUrl("/loginprocess")

@@ -32,6 +32,7 @@ public abstract class Dispositivo {
 	@CreationTimestamp
 	protected LocalDateTime creacion;
 	
+<<<<<<< Updated upstream
 	public Dispositivo(String nombre, LocalDateTime creacion) {
 		super();
 		this.nombre = nombre;
@@ -45,8 +46,33 @@ public abstract class Dispositivo {
 		this.creacion = creacion;
 	}
 
+=======
+	@Column(name="activo")
+	protected boolean activo;
+
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "dispositivo")
+	protected Set<Evento> eventos= new HashSet<Evento>();
+	
+>>>>>>> Stashed changes
 	public Dispositivo() {
 		super();
+	}
+
+	public Dispositivo(String nombre, LocalDateTime creacion, boolean activo, Set<Evento> eventos) {
+		super();
+		this.nombre = nombre;
+		this.creacion = creacion;
+		this.activo = activo;
+		this.eventos = eventos;
+	}
+
+	public Dispositivo(int idDispositivo, String nombre, LocalDateTime creacion, boolean activo, Set<Evento> eventos) {
+		super();
+		this.idDispositivo = idDispositivo;
+		this.nombre = nombre;
+		this.creacion = creacion;
+		this.activo = activo;
+		this.eventos = eventos;
 	}
 	
 }

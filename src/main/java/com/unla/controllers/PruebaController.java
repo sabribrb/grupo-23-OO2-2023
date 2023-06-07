@@ -10,6 +10,6 @@ public class PruebaController {
 
 	@GetMapping("/login")
 	public String inicio(){ 
-		return "login";
+		return "index";
 	}
 }
