@@ -7,6 +7,17 @@ import java.util.Set;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,6 +45,10 @@ public class Evento {
 	@JoinColumn(name="id_dispositivo", nullable = true)
 	private Dispositivo dispositivo;
 
+	public Evento() {
+		super();
+	}
+
 	public Evento(LocalDateTime horaEvento, String descripcion, boolean estado, Dispositivo dispositivo) {
 		super();
 		this.horaEvento = horaEvento;
@@ -43,11 +58,13 @@ public class Evento {
 	}
 
 	public Evento(int idEvento, LocalDateTime horaEvento, String descripcion, boolean estado, Dispositivo dispositivo) {
+		super();
 		this.idEvento = idEvento;
 		this.horaEvento = horaEvento;
 		this.descripcion = descripcion;
 		this.estado = estado;
 		this.dispositivo = dispositivo;
+
 	}
 
 	public Evento() {

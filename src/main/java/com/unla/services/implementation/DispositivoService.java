@@ -23,11 +23,11 @@ public class DispositivoService implements IDispositivoService {
 		return dispositivoRepository.findAll();
 	}
 
+	@Override
+	public Dispositivo findByIdDispositivo(int idDispositivo) {
+		return dispositivoRepository.findByIdDispositivo(idDispositivo);
+	}
 
-	/*@Override
-	public Dispositivo findByNombreDispositivo(String nombre) {
-		return dispositivoRepository.findByNombreDispositivo(nombre);
-	}*/
 
 	@Override
 	public Dispositivo insertOrUpdate(Dispositivo d) {
@@ -45,10 +45,10 @@ public class DispositivoService implements IDispositivoService {
 		}
 	}
 
+	/*@Override
+	public Dispositivo findByNombreDispositivo(String nombre) {
+		return dispositivoRepository.findByNombreDispositivo(nombre);
+	}*/
 
-	@Override
-	public Dispositivo findByIdDispositivo(int idDispositivo) {
-		return dispositivoRepository.findByIdDispositivo(idDispositivo);
-	}
 	
 }
