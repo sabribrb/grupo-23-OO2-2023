@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Column;
@@ -16,6 +17,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -62,6 +64,11 @@ public class Evento {
 		this.descripcion = descripcion;
 		this.estado = estado;
 		this.dispositivo = dispositivo;
+
+	}
+
+	public Evento() {
+		super();
 	}
 	
 	

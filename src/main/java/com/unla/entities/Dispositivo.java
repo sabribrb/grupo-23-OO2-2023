@@ -4,7 +4,9 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,6 +37,7 @@ public abstract class Dispositivo {
 	@Column(name="creacion")
 	@CreationTimestamp
 	protected LocalDateTime creacion;
+
 	
 	@Column(name="activo")
 	protected boolean activo;
@@ -43,6 +46,13 @@ public abstract class Dispositivo {
 	protected Set<Evento> eventos= new HashSet<Evento>();
 	
 	public Dispositivo() {
+
+
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "dispositivo")
+	protected Set<Evento> eventos= new HashSet<Evento>();
+
+	public Dispositivo(String nombre, LocalDateTime creacion) {
+
 		super();
 	}
 

@@ -1,6 +1,7 @@
 package com.unla.repositories;
 
 import java.io.Serializable;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -12,10 +13,18 @@ import org.springframework.stereotype.Repository;
 import com.unla.entities.Dispositivo;
 import com.unla.entities.Estacionamiento;
 
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.unla.entities.Dispositivo;
+
+
 @Repository("dispositivoRepository")
 public interface IDispositivoRepository extends JpaRepository<Dispositivo, Serializable> {
 
 	public Dispositivo findByIdDispositivo(int idDispositivo);
+
 	
 	@Query("SELECT e FROM Estacionamiento e")
 	public List<Dispositivo> getAllEstacionamiento();
