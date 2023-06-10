@@ -18,14 +18,14 @@ public class Estacionamiento extends Dispositivo{
 	private int nroPlaza;
 
 	public Estacionamiento(int idDispositivo, String nombre, LocalDateTime creacion, boolean activo,
-			Set<Evento> eventos, int nroPlaza) {
-		super(idDispositivo, nombre, creacion, activo, eventos);
+			Set<Evento> eventos, Edificio edificio, int nroPlaza) {
+		super(idDispositivo, nombre, creacion, activo, eventos,edificio );
 		this.nroPlaza = nroPlaza;
 	}
 
 	public Estacionamiento(int idDispositivo, String nombre, LocalDateTime creacion, boolean activo,
-			Set<Evento> eventos) {
-		super(idDispositivo, nombre, creacion, activo, eventos);
+			Set<Evento> eventos, Edificio edificio) {
+		super(idDispositivo, nombre, creacion, activo, eventos, edificio);
 	}
 
 	

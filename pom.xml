@@ -11,7 +11,7 @@
 	<artifactId>grupo23</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>grupo23</name>
-	<description>Demo project for Spring Boot</description>
+	<description> SmartCity UNLa project for group 23 </description>
 	<properties>
 		<java.version>17</java.version>
 		<start-class>com.unla.Gupo23Application</start-class>
