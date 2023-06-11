@@ -45,11 +45,7 @@ public abstract class Dispositivo {
 	@OneToMany(fetch=FetchType.LAZY, mappedBy = "dispositivo")
 	protected Set<Evento> eventos= new HashSet<Evento>();
 	
-	public Dispositivo() {
-
-
-	@OneToMany(fetch=FetchType.LAZY, mappedBy = "dispositivo")
-	protected Set<Evento> eventos= new HashSet<Evento>();
+	public Dispositivo() {}
 
 	public Dispositivo(String nombre, LocalDateTime creacion) {
 
@@ -72,5 +68,6 @@ public abstract class Dispositivo {
 		this.activo = activo;
 		this.eventos = eventos;
 	}
+
 	
 }
