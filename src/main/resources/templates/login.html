@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Prueba Template</title>
-</head>
-<body>
-<h1>hola</h1>
-</body>
-</html>
+<form action="#" th:action="@{guardar}" th:object="${medicionEstacionamiento}" method="post">
+	<p> Dispositivo Nombre: <input type="text" th:field="*{dispositivo}" /></p>
+	<input type="submit"/>
+</form>

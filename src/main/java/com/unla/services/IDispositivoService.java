@@ -10,8 +10,6 @@ public interface IDispositivoService {
 
 	public Dispositivo findByIdDispositivo(int idDispositivo);
 
-	//public Dispositivo findByNombreDispositivo(String nombre);
-
 	public Dispositivo insertOrUpdate(Dispositivo d);
 
 	public boolean remove(int id);

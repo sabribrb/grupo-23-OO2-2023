@@ -45,10 +45,6 @@ public class Evento {
 	@JoinColumn(name="id_dispositivo", nullable = true)
 	private Dispositivo dispositivo;
 
-	public Evento() {
-		super();
-	}
-
 	public Evento(LocalDateTime horaEvento, String descripcion, boolean estado, Dispositivo dispositivo) {
 		super();
 		this.horaEvento = horaEvento;

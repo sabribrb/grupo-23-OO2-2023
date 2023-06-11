@@ -45,10 +45,5 @@ public class DispositivoService implements IDispositivoService {
 		}
 	}
 
-	/*@Override
-	public Dispositivo findByNombreDispositivo(String nombre) {
-		return dispositivoRepository.findByNombreDispositivo(nombre);
-	}*/
-
 	
 }

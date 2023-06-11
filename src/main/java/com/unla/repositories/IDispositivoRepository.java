@@ -35,6 +35,5 @@ public interface IDispositivoRepository extends JpaRepository<Dispositivo, Seria
 	
 	@Query("SELECT e FROM Estacionamiento e WHERE e.activo = (:activo)")
 	 List<Estacionamiento> findEstacionamientosByEnabled(@Param("activo") boolean activo); 
-	
-	//public Dispositivo findByNombreDispositivo(String nombre);
+
 }

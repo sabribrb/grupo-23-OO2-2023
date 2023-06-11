@@ -17,16 +17,18 @@ public class Banios extends Dispositivo {
 	@Column(name="numBanios")
 	private int numBanios;
 
-	public Banios(int idDispositivo, String nombre, LocalDateTime creacion, boolean activo, Set<Evento> eventos,
+
+	public Banios(int idDispositivo, String nombre, LocalDateTime creacion, boolean activo, Edificio edificio,
 			int numBanios) {
-		super(idDispositivo, nombre, creacion, activo, eventos);
+		super(idDispositivo, nombre, creacion, activo, edificio);
 		this.numBanios = numBanios;
 	}
 
-	public Banios(int idDispositivo, String nombre, LocalDateTime creacion, boolean activo, Set<Evento> eventos) {
-		super(idDispositivo, nombre, creacion, activo, eventos);
-	}
 
+	public Banios(int idDispositivo, String nombre, LocalDateTime creacion, boolean activo, Edificio edificio) {
+		super(idDispositivo, nombre, creacion, activo, edificio);
+	}
+	
 	
 	
 }
