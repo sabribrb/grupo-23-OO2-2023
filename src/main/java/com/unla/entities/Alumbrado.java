@@ -19,8 +19,9 @@ public class Alumbrado extends Dispositivo{
 	
 	public Alumbrado() {}
 
-	public Alumbrado(String nombre, LocalDateTime creacion, boolean activo, Set<Evento> eventos, int numAula) {
-		super(nombre, creacion, activo, eventos);
+	public Alumbrado(String nombre, boolean activo, Edificio edificio, int numAula) {
+		super(nombre, activo, edificio);
 		this.numAula = numAula;
 	}
+
 }

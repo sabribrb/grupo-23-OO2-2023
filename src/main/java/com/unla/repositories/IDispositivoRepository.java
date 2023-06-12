@@ -12,14 +12,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.unla.entities.Alumbrado;
+import com.unla.entities.Banio;
 import com.unla.entities.Dispositivo;
 import com.unla.entities.Estacionamiento;
-
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-import com.unla.entities.Dispositivo;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 
@@ -30,21 +25,21 @@ public interface IDispositivoRepository extends JpaRepository<Dispositivo, Seria
 
 	
 	@Query("SELECT e FROM Estacionamiento e")
-	public List<Dispositivo> getAllEstacionamiento();
-
-
-	@Query("SELECT b FROM Banio b")
-	public List<Banio> getAllBanios();
-
+	public List<Estacionamiento> getAllEstacionamiento();
+	
 	@Query("SELECT e FROM Estacionamiento e WHERE DATE(e.creacion) = :creacion")
     List<Estacionamiento> findEstacionamientosByFecha(@Param("creacion") LocalDateTime creacion);
 
 	
 	@Query("SELECT e FROM Estacionamiento e WHERE e.activo = (:activo)")
 	 List<Estacionamiento> findEstacionamientosByEnabled(@Param("activo") boolean activo); 
-	
-	//public Dispositivo findByNombreDispositivo(String nombre);
+
+	@Query("SELECT b FROM Banio b")
+	public List<Banio> getAllBanios();
 	
 	@Query("SELECT a FROM Alumbrado a WHERE a.activo = (:activo)")
 	 List<Alumbrado> findAlumbradosByEnabled(@Param("activo") boolean activo); 
+
+	//public Dispositivo findByNombreDispositivo(String nombre);
+
 }
