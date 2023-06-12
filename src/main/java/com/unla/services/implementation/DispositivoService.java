@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.unla.entities.Banio;
 import com.unla.entities.Dispositivo;
+import com.unla.entities.Estacionamiento;
 import com.unla.repositories.IDispositivoRepository;
 import com.unla.services.IDispositivoService;
 
@@ -43,6 +45,16 @@ public class DispositivoService implements IDispositivoService {
 		}catch (Exception e) {
 			return false;
 		}
+	}
+
+	@Override
+	public List<Banio> getAllBanios() {
+		return dispositivoRepository.getAllBanios();
+	}
+
+	@Override
+	public List<Estacionamiento> getAllEstacionamiento() {
+		return dispositivoRepository.getAllEstacionamiento();
 	}
 
 	

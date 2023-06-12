@@ -7,6 +7,17 @@ import java.util.Set;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,48 +38,54 @@ public abstract class Dispositivo {
 	@CreationTimestamp
 	protected LocalDateTime creacion;
 
-	@Column(name="activo")
+	//atributo para la baja logica
+	@Column(name="activo", columnDefinition = "boolean default true")
 	protected boolean activo;
 
 	@OneToMany(fetch=FetchType.LAZY, mappedBy = "dispositivo")
 	protected Set<Evento> eventos= new HashSet<Evento>();
-	
+
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_edificio", nullable = true)
-	private Edificio edificio;
+	protected Edificio edificio;
 
-	public Dispositivo(String nombre, LocalDateTime creacion) {
-		super();
+	public Dispositivo() {
 	}
 
-	public Dispositivo(int idDispositivo, String nombre, LocalDateTime creacion, boolean activo, Set<Evento> eventos,
-			Edificio edificio) {
-		super();
-		this.idDispositivo = idDispositivo;
-		this.nombre = nombre;
-		this.creacion = creacion;
-		this.activo = activo;
-		this.eventos = eventos;
-		this.edificio = edificio;
+	public Dispositivo(String nombre, boolean activo, Edificio edificio) {
+        this.nombre = nombre;
+        this.activo= activo;
+		this.edificio= edificio;
 	}
 
-	public Dispositivo(String nombre, LocalDateTime creacion, boolean activo, Set<Evento> eventos, Edificio edificio) {
+	public Dispositivo(String nombre, LocalDateTime creacion, boolean activo , Edificio edificio, Set<Evento> eventos) {
 		super();
 		this.nombre = nombre;
 		this.creacion = creacion;
 		this.activo = activo;
 		this.eventos = eventos;
-		this.edificio = edificio;
+		this.edificio= edificio;
 	}
 
-	public Dispositivo(int idDispositivo, String nombre, LocalDateTime creacion, boolean activo, Edificio edificio) {
-		super();
+	public Dispositivo(int idDispositivo, String nombre, LocalDateTime creacion, boolean activo, Set<Evento> eventos, Edificio edificio) {
+
 		this.idDispositivo = idDispositivo;
 		this.nombre = nombre;
 		this.creacion = creacion;
 		this.activo = activo;
-		this.edificio = edificio;
+		this.eventos = eventos;
+		this.edificio= edificio;
 	}
 
+	@Override
+	public String toString() {
+		return "Dispositivo{" +
+				"idDispositivo=" + idDispositivo +
+				", nombre='" + nombre + '\'' +
+				", creacion=" + creacion +
+				", activo=" + activo +
+				", eventos=" + eventos +
+				'}';
+	}
 
 }
