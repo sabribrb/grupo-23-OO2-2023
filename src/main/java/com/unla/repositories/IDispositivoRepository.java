@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.unla.entities.Alumbrado;
 import com.unla.entities.Dispositivo;
 import com.unla.entities.Estacionamiento;
 
@@ -43,4 +44,7 @@ public interface IDispositivoRepository extends JpaRepository<Dispositivo, Seria
 	 List<Estacionamiento> findEstacionamientosByEnabled(@Param("activo") boolean activo); 
 	
 	//public Dispositivo findByNombreDispositivo(String nombre);
+	
+	@Query("SELECT a FROM Alumbrado a WHERE a.activo = (:activo)")
+	 List<Alumbrado> findAlumbradosByEnabled(@Param("activo") boolean activo); 
 }

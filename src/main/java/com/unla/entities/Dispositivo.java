@@ -48,7 +48,7 @@ public abstract class Dispositivo {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_edificio", nullable = true)
 	protected Edificio edificio;
-	
+
 	public Dispositivo() {
 	}
 
@@ -87,4 +87,5 @@ public abstract class Dispositivo {
 				", eventos=" + eventos +
 				'}';
 	}
+
 }
