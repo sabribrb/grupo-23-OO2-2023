@@ -14,6 +14,7 @@ public class Estacionamiento extends Dispositivo{
 
 	private Set<Integer> lugares= new HashSet<Integer>();
 
+
 	public Estacionamiento(String nombre, boolean activo, Edificio edificio, Set<Integer> lugares) {
 		super(nombre, activo, edificio);
 		this.lugares = lugares;

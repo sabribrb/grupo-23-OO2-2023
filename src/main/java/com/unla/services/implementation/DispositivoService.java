@@ -2,6 +2,7 @@ package com.unla.services.implementation;
 
 import java.util.List;
 
+import com.unla.entities.Banio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ public class DispositivoService implements IDispositivoService {
 	@Autowired
 	@Qualifier("dispositivoRepository")
 	private IDispositivoRepository dispositivoRepository;
+
 
 	@Override
 	public List<Dispositivo> getAll(){
@@ -56,6 +58,11 @@ public class DispositivoService implements IDispositivoService {
 	public List<Estacionamiento> getAllEstacionamiento() {
 		return dispositivoRepository.getAllEstacionamiento();
 	}
+
+	/*@Override
+	public Dispositivo findByNombreDispositivo(String nombre) {
+		return dispositivoRepository.findByNombreDispositivo(nombre);
+	}*/
 
 	
 }

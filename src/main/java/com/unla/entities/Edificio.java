@@ -26,6 +26,7 @@ public class Edificio {
 	@Column(name="nombre")
 	private String nombre;
 	
+
 	@OneToMany(fetch=FetchType.LAZY, mappedBy = "edificio")
 	private Set<Dispositivo> dispositivos = new HashSet<Dispositivo>();
 
@@ -45,6 +46,13 @@ public class Edificio {
 		this.nombre = nombre;
 		this.dispositivos = dispositivos;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Edificio{" +
+				"idEdificio=" + idEdificio +
+				", nombre='" + nombre + '\'' +
+				", dispositivos=" + dispositivos +
+				'}';
+	}
 }

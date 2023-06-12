@@ -1,12 +1,12 @@
 package com.unla.services;
 
 import java.util.List;
-
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.unla.entities.Banio;
 import com.unla.entities.Dispositivo;
 import com.unla.entities.Estacionamiento;
+
 
 public interface IDispositivoService {
 

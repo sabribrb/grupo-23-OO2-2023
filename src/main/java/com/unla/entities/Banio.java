@@ -30,9 +30,23 @@ public class Banio extends Dispositivo {
 
 	@Override
 	public String toString() {
+
 		return "Banios{" + "numBanio=" + numBanio + ", cerrojo=" + cerrojo + ", idDispositivo=" + idDispositivo
 				+ ", nombre='" + nombre + '\'' + ", creacion=" + creacion + ", activo=" + activo + ", eventos="
 				+ eventos + '}';
 	}
+
+
+		return "Banios{" +
+				"numBanio=" + numBanio +
+				", cerrojo=" + cerrojo +
+				", idDispositivo=" + idDispositivo +
+				", nombre='" + nombre + '\'' +
+				", creacion=" + creacion +
+				", activo=" + activo +
+				", eventos=" + eventos +
+				'}';
+	}
+
 
 }
