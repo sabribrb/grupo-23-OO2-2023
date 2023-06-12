@@ -14,7 +14,7 @@
 	<description> SmartCity UNLa project for group 23 </description>
 	<properties>
 		<java.version>17</java.version>
-		<start-class>com.unla.Gupo23Application</start-class>
+		<start-class>com.unla.Grupo23Application</start-class>
 	</properties>
 	<dependencies>
 		<dependency>

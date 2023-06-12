@@ -37,8 +37,9 @@ public abstract class Dispositivo {
 	@Column(name="creacion")
 	@CreationTimestamp
 	protected LocalDateTime creacion;
-	
-	@Column(name="activo")
+
+	//atributo para la baja logica
+	@Column(name="activo", columnDefinition = "boolean default true")
 	protected boolean activo;
 
 	@OneToMany(fetch=FetchType.LAZY, mappedBy = "dispositivo")
@@ -48,12 +49,11 @@ public abstract class Dispositivo {
 	@JoinColumn(name="id_edificio", nullable = true)
 	protected Edificio edificio;
 	
-	public Dispositivo(String nombre, LocalDateTime creacion, boolean activo) {
+	public Dispositivo() {
 	}
 
-	public Dispositivo(String nombre, LocalDateTime creacion, boolean activo, Edificio edificio) {
+	public Dispositivo(String nombre, boolean activo, Edificio edificio) {
         this.nombre = nombre;
-        this.creacion = creacion;
         this.activo= activo;
 		this.edificio= edificio;
 	}
@@ -76,5 +76,15 @@ public abstract class Dispositivo {
 		this.eventos = eventos;
 		this.edificio= edificio;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Dispositivo{" +
+				"idDispositivo=" + idDispositivo +
+				", nombre='" + nombre + '\'' +
+				", creacion=" + creacion +
+				", activo=" + activo +
+				", eventos=" + eventos +
+				'}';
+	}
 }

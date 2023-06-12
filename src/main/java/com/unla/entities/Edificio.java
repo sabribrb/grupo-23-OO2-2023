@@ -45,6 +45,13 @@ public class Edificio {
 		this.nombre = nombre;
 		this.dispositivos = dispositivos;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Edificio{" +
+				"idEdificio=" + idEdificio +
+				", nombre='" + nombre + '\'' +
+				", dispositivos=" + dispositivos +
+				'}';
+	}
 }
