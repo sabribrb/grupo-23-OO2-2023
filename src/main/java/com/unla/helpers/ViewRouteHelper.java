@@ -7,4 +7,11 @@ public class ViewRouteHelper {
     //BAÑOS
     public final static String REPORTES_BANIOS = "banios/getBanios";
     public final static String NEW_BANIO = "banios/newBanio";
+    
+    //ESTACIONAMIENTO
+    public final static String REPORTES_ESTACIONAMIENTOS = "estacionamientos/getEstacionamientos";
+    public final static String NEW_ESTACIONAMIENTO = "estacionamientos/newEstacionamiento";
+
+    //ALUMBRADO
+    public final static String REPORTES_ALUMBRADO = "alumbrado/getAlumbrado";
 }

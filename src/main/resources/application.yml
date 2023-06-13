@@ -4,10 +4,10 @@ spring:
   datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
 
-      url: jdbc:mysql://localhost/bd-grupo23-oo2?useSSL=false
-      dbname: bd-grupo23-oo2
+      url: jdbc:mysql://localhost/bd-grupo-oo2?useSSL=false
+      dbname: bd-grupo-oo2
       username: root
-      password: root
+      password: 44366782
   main:
      allow-circular-references: true
   jpa:

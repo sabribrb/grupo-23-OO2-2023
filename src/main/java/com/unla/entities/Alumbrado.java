@@ -1,5 +1,6 @@
 package com.unla.entities;
 
+
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -9,8 +10,10 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 @Table(name="Alumbrado")
 public class Alumbrado extends Dispositivo{
 
@@ -24,6 +27,8 @@ public class Alumbrado extends Dispositivo{
 		super(nombre, creacion, activo, edificio, eventos);
 		this.numAula = numAula;
 	}
+
+
 
 
 }

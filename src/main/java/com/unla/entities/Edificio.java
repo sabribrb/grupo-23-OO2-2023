@@ -26,7 +26,8 @@ public class Edificio {
 	@Column(name="nombre")
 	private String nombre;
 	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy= "edificio")
+
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "edificio")
 	private Set<Dispositivo> dispositivos = new HashSet<Dispositivo>();
 
 	public Edificio() {
