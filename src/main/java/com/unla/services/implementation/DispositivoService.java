@@ -1,5 +1,6 @@
 package com.unla.services.implementation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.unla.entities.Banio;
@@ -42,7 +43,8 @@ public class DispositivoService implements IDispositivoService {
 	@Override
 	public boolean remove(int id) {
 		try {
-			dispositivoRepository.deleteById(id);
+			Dispositivo dispositivoNuevo=findByIdDispositivo(id);
+			dispositivoNuevo.setActivo(false);
 			return true;
 		}catch (Exception e) {
 			return false;
@@ -56,7 +58,15 @@ public class DispositivoService implements IDispositivoService {
 
 	@Override
 	public List<Estacionamiento> getAllEstacionamiento() {
-		return dispositivoRepository.getAllEstacionamiento();
+		List<Estacionamiento>lista=dispositivoRepository.getAllEstacionamiento();
+		List<Estacionamiento>aux=new ArrayList<Estacionamiento>();
+		for (int i = 0; i < lista.size(); i++) {
+			if (lista.get(i).isActivo()==false) {
+				aux.add(lista.get(i));
+			}
+			
+		}
+		return aux;
 	}
 
 	/*@Override

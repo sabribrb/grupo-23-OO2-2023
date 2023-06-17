@@ -11,5 +11,9 @@ public class ViewRouteHelper {
     //ESTACIONAMIENTO
     public final static String REPORTES_ESTACIONAMIENTOS = "estacionamientos/getEstacionamientos";
     public final static String NEW_ESTACIONAMIENTO = "estacionamientos/newEstacionamiento";
+    
+    //MEDICIONES ESTACIONAMIENTO
+    public final static String REPORTES_MEDICIONES = "mediciones/getMediciones";
+    public final static String NEW_MEDICION = "mediciones/newMedicion";
 
 }

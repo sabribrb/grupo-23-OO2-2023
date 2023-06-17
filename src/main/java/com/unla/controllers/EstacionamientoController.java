@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -44,4 +45,12 @@ public class EstacionamientoController {
         dispositivoService.insertOrUpdate(modelMapper.map(estacionamiento, Estacionamiento.class));
         return new RedirectView(ViewRouteHelper.REPORTES_ESTACIONAMIENTOS);
     }
+    
+	/*@GetMapping("/delete/{id}")
+	public ModelAndView delete(@PathVariable("id") int id) {
+		 ModelAndView mV = new ModelAndView();
+		 mV.setViewName(ViewRouteHelper.REPORTES_ESTACIONAMIENTOS);
+		dispositivoService.remove(id);
+		return mV;
+	}*/
 }

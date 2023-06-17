@@ -37,12 +37,12 @@
 											autofocus="autofocus" /> <label class="form-label">Nombre Dispositivo</label>
 									</div>
 									<div class="form-outline form-white mb-4">
-										<input type="text" th:field="*{lugares}"
+										<input type="number" th:field="*{lugares}"
 											class="form-control form-control-lg" required
 											autofocus="autofocus" /> <label class="form-label">Cantidad
 											de Lugares</label>
 									</div>
-									<button class="btn btn-outline-light btn-lg px-5" value="crear" href="/estacionamiento/todos-los-estacionamientos" type="submit">Crear Estacionamiento</button>
+									<button onclick="location.href='estacionamiento/todos-los-estacionamientos'" class="btn btn-outline-light btn-lg px-5" value="crear" type="submit">Crear Estacionamiento</button>
 							</div>
 							<div>
 								<p class="mb-0">
