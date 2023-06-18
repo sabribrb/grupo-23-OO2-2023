@@ -20,6 +20,8 @@ public interface IDispositivoService {
 	
 	@ModelAttribute("banios")
 	public List<Banio> getAllBanios();
+
+	public Banio getBanioById(int id);
 	
 	@ModelAttribute("estacionamiento")
 	public List<Estacionamiento> getAllEstacionamiento();

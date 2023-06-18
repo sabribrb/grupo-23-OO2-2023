@@ -55,6 +55,10 @@ public class DispositivoService implements IDispositivoService {
 	}
 
 	@Override
+	public Banio getBanioById(int id){
+		return dispositivoRepository.findBanioByIdDispositivo(id);
+	}
+	@Override
 	public List<Estacionamiento> getAllEstacionamiento() {
 		return dispositivoRepository.getAllEstacionamiento();
 	}
