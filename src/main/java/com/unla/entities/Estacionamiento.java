@@ -23,5 +23,10 @@ public class Estacionamiento extends Dispositivo{
 	public Estacionamiento() {
 		super();
 	}
+
+	@Override
+	public String toString() {
+		return "" + lugares;
+	}
 	
 }

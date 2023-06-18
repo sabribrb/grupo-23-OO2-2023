@@ -49,10 +49,7 @@ public class Edificio {
 
 	@Override
 	public String toString() {
-		return "Edificio{" +
-				"idEdificio=" + idEdificio +
-				", nombre='" + nombre + '\'' +
-				", dispositivos=" + dispositivos +
-				'}';
+		return "" + idEdificio +
+				" - " + nombre;
 	}
 }

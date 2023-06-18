@@ -34,6 +34,7 @@
 										<th>Nombre</th>
 										<th>Cantidad de Lugares</th>
 										<th>Creacion</th>
+										<th>Edificio</th>
 										<th>Medicion</th>
 										<th>Accion</th>
 									</tr>
@@ -44,8 +45,13 @@
 										<td th:text="${estacionamiento.nombre}"></td>
 										<td th:text="${estacionamiento.lugares}"></td>
 										<td th:text="${estacionamiento.creacion}"></td>
-										<td><button onclick="location.href='/mediciones-estacionamiento/new'" class="btn btn-success" type="button">Generar Medición</button></td>
-										<td><a th:href="@{/delete/{id}(id=${idDispositivo})}" class="btn btn-danger">Eliminar</a></td>
+										<td th:text="${estacionamiento.edificio}"></td>
+										<td><button
+												onclick="location.href='/mediciones-estacionamiento/new'"
+												class="btn btn-success" type="button">Generar
+												Medición</button></td>
+										<td><a th:href="@{/delete/{id}(id=${idDispositivo})}"
+											class="btn btn-danger">Eliminar</a></td>
 									</tr>
 								</tbody>
 							</table>
