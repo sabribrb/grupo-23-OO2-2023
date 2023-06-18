@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Evento</title>
+    <h1> Simulación de data obtenida por el sensor</h1>
+    <form action="#" th:action="@{/banios/registrar}" th:object="${banio}" method="post">
+        <p>numero de baño: <input type="number" th:field="*{numBanio}" /></p>
+           <input type="submit" value="cambiar"/>
+    </form>
+
+</head>
+<body>
+
+</body>
+</html>
