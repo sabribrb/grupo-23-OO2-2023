@@ -17,7 +17,7 @@ public class Banio extends Dispositivo{
 	private int numBanio;
 	@Column(columnDefinition = "boolean default false")
 	private boolean cerrojo; // si el sensor capta que está en true, significa que alguien ocupa el baño,
-								// esto registra un evento?
+								// esto registra un evento
 
 	public Banio() {
 
@@ -32,16 +32,13 @@ public class Banio extends Dispositivo{
 	@Override
 	public String toString() {
 
-		return "Banios{" +
-				"numBanio=" + numBanio +
-				", cerrojo=" + cerrojo +
-				", idDispositivo=" + idDispositivo +
-				", nombre='" + nombre + '\'' +
-				", creacion=" + creacion +
-				", activo=" + activo +
-				", eventos=" + eventos +
-				'}';
+		return "Banios{" + "numBanio=" + numBanio + ", cerrojo=" + cerrojo + ", idDispositivo=" + idDispositivo
+				+ ", nombre='" + nombre + '\'' + ", creacion=" + creacion + ", activo=" + activo + ", eventos="
+				+ eventos + '}';
 	}
+
+
+
 
 
 }

@@ -23,7 +23,7 @@ public interface IDispositivoRepository extends JpaRepository<Dispositivo, Seria
 
 	public Dispositivo findByIdDispositivo(int idDispositivo);
 
-	
+	//ESTACIONAMIENTO
 	@Query("SELECT e FROM Estacionamiento e")
 	public List<Estacionamiento> getAllEstacionamiento();
 	
@@ -34,9 +34,22 @@ public interface IDispositivoRepository extends JpaRepository<Dispositivo, Seria
 	@Query("SELECT e FROM Estacionamiento e WHERE e.activo = (:activo)")
 	 List<Estacionamiento> findEstacionamientosByEnabled(@Param("activo") boolean activo); 
 
+<<<<<<< HEAD
 	@Query("SELECT a FROM Alumbrado a")
 	public List<Alumbrado> getAllAlumbrado();
 	
+=======
+	//BAÑOS
+	@Query("SELECT b FROM Banio b ")
+	 List<Banio> getAllBanios();
+
+	public Banio findBanioByIdDispositivo(int idDispositivo);
+
+	@Query("SELECT b FROM Banio b WHERE b.activo = (:activo)")
+	List<Banio> findBaniosByEnabled(@Param("activo") boolean activo);
+
+	//ALUMBRADO
+>>>>>>> 59cbfc16b1a5da6d531b08c85a17777f4ab5574f
 	@Query("SELECT a FROM Alumbrado a WHERE a.activo = (:activo)")
 	 List<Alumbrado> findAlumbradosByEnabled(@Param("activo") boolean activo); 
 	
