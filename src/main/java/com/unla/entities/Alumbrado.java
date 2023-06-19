@@ -20,6 +20,9 @@ public class Alumbrado extends Dispositivo{
 	@Column(name="numAula")
 	private int numAula;
 	
+	@Column(name="libre")
+	private boolean libre;
+	
 	public Alumbrado() {}
 
 	public Alumbrado(String nombre, LocalDateTime creacion, boolean activo, Edificio edificio, Set<Evento> eventos,
