@@ -1,8 +1,6 @@
 package com.unla.entities;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,13 +24,7 @@ public class MedicionAlumbrado {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idMedicionAlum;
 
-	@Column(name="fechaRegistro")
-	private LocalDate fechaRegistro;
-	
-	@Column(name="horaRegistro")
-	private LocalTime horaRegistro;
-
-	@Column(name="hayGente")
+	@Column(columnDefinition = "boolean default false")
 	private boolean hayGente;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -43,11 +35,9 @@ public class MedicionAlumbrado {
 		
 	}
 
-	public MedicionAlumbrado(LocalDate fechaRegistro, LocalTime horaRegistro, boolean hayGente,
-			Dispositivo dispositivo) {
+	public MedicionAlumbrado( boolean hayGente,Dispositivo dispositivo) {
 		super();
-		this.fechaRegistro = fechaRegistro;
-		this.horaRegistro = horaRegistro;
+	
 		this.hayGente = hayGente;
 		this.dispositivo = dispositivo;
 	}

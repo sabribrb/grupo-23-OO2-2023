@@ -50,14 +50,9 @@ public class MedicionAlumbradoService implements IMedicionAlumbradoService {
         medicionAlumbradoRepository.save(medicionAlumbrado);
     
         //crear un evento de que el si hay gente el aula esta ocupada por lo cual se prenden las luces 
-        //crear el evento prender luces si el aula esta ocupada o si son las 8 am 
         if (medicionAlumbrado.isHayGente()==true) {
             Evento evento = new Evento(LocalDateTime.now(), "Aula ocupada. Se prenden las luces", medicionAlumbrado.isHayGente(), medicionAlumbrado.getDispositivo());
             eventoService.insertOrUpdate(evento);
-        
-        }if(medicionAlumbrado.getHoraRegistro().equals(LocalTime.of(8, 00))) {
-        	 Evento evento = new Evento(LocalDateTime.now(), "Se prenden las luces", medicionAlumbrado.isHayGente(), medicionAlumbrado.getDispositivo());
-             eventoService.insertOrUpdate(evento);
         }
         else { 
         	 Evento evento = new Evento(LocalDateTime.now(), "Aula Libre", medicionAlumbrado.isHayGente(), medicionAlumbrado.getDispositivo());
