@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Sensor Cerrojo</title>
+    <h1>Creacion de dispositivo de tipo "Sensor de baño ocupado"</h1>
+    <form action="#" th:action="@{/banios/create}" th:object="${banio}" method="post">
+        <p>numero de baño: <input type="number" th:field="*{numBanio}" /></p>
+<!--        <p>id del edificio: <input type="number" th:field="*{edificio.id_edificio}" /></p>-->
+
+<!--        TODO: colocar algun tipo de entrada de filtro que pueda elegir el edificio (atributo de dispositivo)-, ya que por ahora deja este campo null-->
+
+<!--        TODO: colocar algun tipo de entrada de filtro que pueda elegir el edificio (atributo de dispositivo)-, ya que por ahora deja este campo null-->
+        <input type="submit" value="crear"/>
+    </form>
+
+</head>
+<body>
+
+</body>
+</html>

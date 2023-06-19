@@ -1,6 +1,7 @@
 package com.unla.repositories;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -15,5 +16,8 @@ public interface IMedicionEstacionamientoRepository extends JpaRepository<Medici
 
 	@Query("SELECT m FROM MedicionEstacionamiento m WHERE m.idMedicion = :idMedicion")
     MedicionEstacionamiento findByIdMedcicionEstacionamiento(@Param("idMedicion") int idMedicion);
+	
+	@Query("SELECT m FROM MedicionEstacionamiento m")
+	public List<MedicionEstacionamiento> getAllMedicionesEstacionamiento();
 	
 }

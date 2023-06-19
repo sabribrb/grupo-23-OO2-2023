@@ -22,8 +22,7 @@
 			<div class="container py-4 h-100">
 				<br> <br>
 
-				<div
-					class="row d-flex justify-content-center align-items-center">
+				<div class="row d-flex justify-content-center align-items-center">
 					<div class="card-body p-3 text-center">
 						<div class="mb-md-5 mt-md-2 pb-3">
 
@@ -35,17 +34,33 @@
 										<th>Nombre</th>
 										<th>Cantidad de Lugares</th>
 										<th>Creacion</th>
+										<th>Edificio</th>
+										<th>Medicion</th>
+										<th>Accion</th>
 									</tr>
 								</thead>
 								<tbody style="background: white">
-									  <tr th:each="estacionamiento : ${estacionamiento}">
+									<tr th:each="estacionamiento : ${estacionamiento}">
 										<td th:text="${estacionamiento.idDispositivo}"></td>
 										<td th:text="${estacionamiento.nombre}"></td>
 										<td th:text="${estacionamiento.lugares}"></td>
 										<td th:text="${estacionamiento.creacion}"></td>
+										<td th:text="${estacionamiento.edificio}"></td>
+										<td><button
+												onclick="location.href='/mediciones-estacionamiento/new'"
+												class="btn btn-success" type="button">Generar
+												Medición</button></td>
+										<td><a th:href="@{/delete/{id}(id=${idDispositivo})}"
+											class="btn btn-danger">Eliminar</a></td>
 									</tr>
 								</tbody>
 							</table>
+							<br> <br>
+							<button
+								onclick="location.href='estacionamiento/todos-los-estacionamientos'"
+								class="btn btn-dark btn-outline-black btn-lg px-5"
+								style="border: white 2px solid" type="button">Agregar
+								Estacionamiento</button>
 						</div>
 					</div>
 		</section>
