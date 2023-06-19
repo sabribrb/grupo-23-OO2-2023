@@ -20,4 +20,6 @@ public class ViewRouteHelper {
     public final static String REPORTES_MEDICIONES = "mediciones/getMediciones";
     public final static String NEW_MEDICION = "mediciones/newMedicion";
 
+    //ALUMBRADO
+    public final static String REPORTES_ALUMBRADO = "alumbrado/getAlumbrado";
 }

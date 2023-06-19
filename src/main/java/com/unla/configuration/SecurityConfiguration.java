@@ -20,10 +20,11 @@ public class SecurityConfiguration {
 		return new BCryptPasswordEncoder();
 	}
 
+
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests()
-				.requestMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/img-tp/**", "/banios/**","/mediciones-estacionamiento/**","/estacionamientos/**","/estacionamiento/**","/mediciones/**").permitAll()
+				.requestMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/img-tp/**","/Alumbrado/**", "/MedicionesAlumbrado/**", "/banios/**","/mediciones-estacionamiento/**","/estacionamientos/**","/estacionamiento/**","/mediciones/**").permitAll()
 
 				.anyRequest().authenticated()
 			.and()
@@ -34,6 +35,7 @@ public class SecurityConfiguration {
 				.logout().logoutUrl("/logout").logoutSuccessUrl("/logout").permitAll();
 		return http.build();
 	}
+
 
 	/* No usado en este ejemplo
 	@Bean

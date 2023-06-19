@@ -6,11 +6,12 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
 @Getter
 @Setter
 @Table(name = "banios")
-public class Banio extends Dispositivo {
+public class Banio extends Dispositivo{
 
 	@Column(name = "numBanios")
 	private int numBanio;
