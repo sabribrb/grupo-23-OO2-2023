@@ -2,6 +2,8 @@ package com.unla.services;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.ModelAttribute;
+
 import com.unla.entities.MedicionEstacionamiento;
 
 public interface IMedicionEstacionamientoService {
@@ -13,4 +15,7 @@ public interface IMedicionEstacionamientoService {
 	public boolean remove(int id);
 	
 	public void guardarMedicionEstacionamiento(MedicionEstacionamiento medicionEstacionamiento);
+	
+	@ModelAttribute("MedicionEstacionamiento")
+	public List<MedicionEstacionamiento> getAllMedicionesEstacionamiento();
 }

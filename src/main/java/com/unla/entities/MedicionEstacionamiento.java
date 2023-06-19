@@ -2,6 +2,8 @@ package com.unla.entities;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -28,12 +30,13 @@ public class MedicionEstacionamiento {
 	private Dispositivo dispositivo;
 	
 	@Column(name="fechaHoraRegistro")
+	@CreationTimestamp
 	private LocalDateTime fechaHoraRegistro;
 	
 	@Column(name="numeroLugar")
 	private int numeroLugar;
 	
-	@Column(name="ocupado")
+	@Column(name="ocupado",columnDefinition = "boolean default false",nullable = true)
 	private boolean ocupado;
 	
 	public MedicionEstacionamiento(int idMedicion, Dispositivo dispositivo, LocalDateTime fechaHoraRegistro,

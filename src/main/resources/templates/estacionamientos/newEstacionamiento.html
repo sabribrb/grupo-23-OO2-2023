@@ -34,20 +34,35 @@
 									<div class="form-outline form-white mb-4">
 										<input type="text" th:field="*{nombre}"
 											class="form-control form-control-lg" required
-											autofocus="autofocus" /> <label class="form-label">Nombre Dispositivo</label>
+											autofocus="autofocus" /> <label class="form-label">Nombre
+											Dispositivo</label>
 									</div>
 									<div class="form-outline form-white mb-4">
-										<input type="text" th:field="*{lugares}"
+										<input type="number" th:field="*{lugares}"
 											class="form-control form-control-lg" required
 											autofocus="autofocus" /> <label class="form-label">Cantidad
 											de Lugares</label>
 									</div>
-									<button class="btn btn-outline-light btn-lg px-5" value="crear" href="/estacionamiento/todos-los-estacionamientos" type="submit">Crear Estacionamiento</button>
+									<div class="form-outline form-white mb-4">
+										<select name="edificioId"
+											class="form-select form-select-lg mb-1"
+											aria-label=".form-select-lg example">
+											<option selected></option>
+											<option th:each="edificio : ${edificios}"
+												th:value="${edificio.idEdificio}"
+												th:text="${edificio.nombre}"></option>
+										</select> <label class="form-label mb-3">Edificio</label>
+									</div>
+									<button
+										onclick="location.href='estacionamiento/todos-los-estacionamientos'"
+										class="btn btn-outline-light btn-lg px-5" value="crear"
+										type="submit">Crear Estacionamiento</button>
 							</div>
 							<div>
 								<p class="mb-0">
 									<span>Ver los dispositivos creados? <a
-										class="text-white-50 fw-bold" href="/estacionamiento/todos-los-estacionamientos">Aqui</a></span>
+										class="text-white-50 fw-bold"
+										href="/estacionamiento/todos-los-estacionamientos">Aqui</a></span>
 								</p>
 							</div>
 							</form>

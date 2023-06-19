@@ -1,0 +1,23 @@
+spring:
+  profile:
+      active: local
+  datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+      url: jdbc:mysql://localhost/bd-grupo23-oo2?useSSL=false
+      dbname: bd-grupo23-oo2
+      username: root
+      password: root
+  main:
+     allow-circular-references: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8080
+logging:
+  level:
+    org:
+      hibernate:
+        type: TRACE
+        SQL: DEBUG
