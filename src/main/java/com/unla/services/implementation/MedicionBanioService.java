@@ -34,14 +34,14 @@ public class MedicionBanioService implements IMedicionBanioService {
         eventoService.insertOrUpdate(nuevoEvento);
     }
     public void liberarBanio(Banio banio) throws Exception {
-        //ubicar banio y chequear que este ocupado
-        Banio banioAOcupar= repository.findBanioByIdDispositivo(banio.getIdDispositivo());
-        if(!banioAOcupar.isCerrojo()) throw new Exception("Este baño ya está liberado\n");
+        //ubicar banio y chequear que este ocupado (esta excepcion no interrumpe la aplicacion)
+        Banio banioALiberar= repository.findBanioByIdDispositivo(banio.getIdDispositivo());
+        if(!banioALiberar.isCerrojo()) throw new Exception("Este baño ya está liberado\n");
         //cambiar estado del cerrojo
-        banioAOcupar.setCerrojo(false);
+        banioALiberar.setCerrojo(false);
         //registrar evento de baño ocupado
-        String descripcion= " El baño "+ banioAOcupar.getNumBanio() + " se ha liberado. \n";
-        Evento nuevoEvento= new Evento(LocalDateTime.now(),descripcion, true, banioAOcupar );
+        String descripcion= " El baño "+ banioALiberar.getNumBanio() + " se ha liberado. \n";
+        Evento nuevoEvento= new Evento(LocalDateTime.now(),descripcion, true, banioALiberar );
         eventoService.insertOrUpdate(nuevoEvento);
     }
 }
