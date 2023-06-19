@@ -1,8 +1,13 @@
 package com.unla.helpers;
 
 public class ViewRouteHelper {
+    //USER
+    public final static String USER_LOGIN = "user/login";
+    public final static String USER_LOGOUT = "user/logout";
+
+
     //EDIFICIO
-    public final static String REPORTES_EDIFICIOS = "/getEdificios";
+    public final static String REPORTES_EDIFICIOS = "edificio/getEdificios";
 
     //ESTACIONAMIENTO
     public final static String MEDICION_EST_FORM = "/login";

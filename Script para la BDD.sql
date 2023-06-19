@@ -20,3 +20,6 @@ INSERT INTO `bd-grupo23-oo2`.edificio (nombre) VALUES
 	('Macedonio Fernández');
     
 -- Listo! Ya podes probar las funcionalidades de nuestro sistema
+-- Se agregan usuarios validos con sus roles, la password sera generada por el TestBCryptPasswordEncoder
+insert into `bd-grupo23-oo2`.user (id,enabled,password,username) values(1,1, --remplazar por password--, 'grupo12')
+insert into `bd-grupo23-oo2`.user_role (id,role,user_id) values (1,'ROLE_ADMIN',1)
