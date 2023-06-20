@@ -1,6 +1,9 @@
 package com.unla.helpers;
 
 public class ViewRouteHelper {
+    public final static String INDEX = "/index";
+    public final static String ROUTE = "/index";
+
     //USER
     public final static String USER_LOGIN = "user/login";
     public final static String USER_LOGOUT = "user/logout";
@@ -13,7 +16,8 @@ public class ViewRouteHelper {
     public final static String MEDICION_EST_FORM = "/login";
 
     //BAÑOS
-    public final static String REPORTES_BANIOS = "banios/getBanios";
+    public final static String INDEX_BANIOS = "banios/index";
+    public final static String REDIRECCION_BANIOS = "banios/";
     public final static String NEW_BANIO = "banios/newBanio";
     public final static String REGISTRO_BANIO = "banios/recordEvent";
 

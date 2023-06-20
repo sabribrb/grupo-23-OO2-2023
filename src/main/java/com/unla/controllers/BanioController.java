@@ -34,17 +34,17 @@ public class BanioController {
 
     private ModelMapper modelMapper = new ModelMapper();
 
-    @GetMapping("/todos-los-banios")
-    public ModelAndView getBanios() {
+    @GetMapping("/index")
+    public ModelAndView index() {
         ModelAndView mV = new ModelAndView();
-        mV.setViewName(ViewRouteHelper.REPORTES_BANIOS);
+        mV.setViewName(ViewRouteHelper.INDEX_BANIOS);
         mV.addObject("banios", dispositivoService.getAllBanios());
         return mV;
     }
 
 
     @GetMapping("/new")
-    public ModelAndView newBanio() {
+    public ModelAndView create() {
         ModelAndView mV = new ModelAndView(ViewRouteHelper.NEW_BANIO);
         mV.addObject("banio", new Banio());
         List<Edificio> edificios = edificioService.getAll();
@@ -55,22 +55,22 @@ public class BanioController {
     @PostMapping("/create")
     public RedirectView create(@ModelAttribute("banio") Banio banio,@RequestParam("edificioId") int edificioId) {
         Edificio edificio = edificioService.findByIdEdificio(edificioId);
-        banio.setNombre("dispositivo baño");
         dispositivoService.insertOrUpdate(modelMapper.map(banio, Banio.class));
-        return new RedirectView(ViewRouteHelper.REPORTES_BANIOS);
-    }
+        return new RedirectView(ViewRouteHelper.REDIRECCION_BANIOS);
+    } //TODO: no me carga el edificio
 
-    @GetMapping("/registrar")
-    public RedirectView recordEvent(@RequestParam int id, @RequestParam(defaultValue = "true") boolean cambiar) throws Exception {
+    @GetMapping("/registrar/{id}")
+    public RedirectView recordEvent(@PathVariable int id) throws Exception {
         //agregar parametro ocupar vs liberar
         Banio banio= dispositivoService.getBanioById(id);
-        if(cambiar) medicionBanioService.cerrarPuerta(banio);
+        if(!banio.isCerrojo()) medicionBanioService.cerrarPuerta(banio);
         else {medicionBanioService.liberarBanio(banio);}
-        return new RedirectView(ViewRouteHelper.REGISTRO_BANIO);
+        return new RedirectView(ViewRouteHelper.REDIRECCION_BANIOS);
     }
 
+    //delete
 
-    //TODO: baja(logica) y modificacion, filtros en el getAllBanios, mejorar vistas
+    //TODO: baja(logica) y modificacion, filtros en el getAllBanios
 
 }
 
