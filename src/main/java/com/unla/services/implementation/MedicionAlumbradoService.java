@@ -1,7 +1,6 @@
 package com.unla.services.implementation;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,9 +42,8 @@ public class MedicionAlumbradoService implements IMedicionAlumbradoService {
 		}
 	}
 	
-	
     @Override
-    public void guardarMedicionAlumbrado(MedicionAlumbrado medicionAlumbrado) {
+    public void registrarMedicionAlumbrado(MedicionAlumbrado medicionAlumbrado) {
     	
         medicionAlumbradoRepository.save(medicionAlumbrado);
     
@@ -55,7 +53,7 @@ public class MedicionAlumbradoService implements IMedicionAlumbradoService {
             eventoService.insertOrUpdate(evento);
         }
         else { 
-        	 Evento evento = new Evento(LocalDateTime.now(), "Aula Libre", medicionAlumbrado.isHayGente(), medicionAlumbrado.getDispositivo());
+        	 Evento evento = new Evento(LocalDateTime.now(), "Aula Libre. Luces apagadas", medicionAlumbrado.isHayGente(), medicionAlumbrado.getDispositivo());
         	 eventoService.insertOrUpdate(evento);
         }
     }

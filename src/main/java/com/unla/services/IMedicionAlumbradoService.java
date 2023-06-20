@@ -9,14 +9,14 @@ import com.unla.entities.MedicionAlumbrado;
 public interface IMedicionAlumbradoService {
 	public List<MedicionAlumbrado> getAll();
 
-	@ModelAttribute("MedicionAlumbrado")
+	@ModelAttribute("medicion_alumbrado")
 	public List<MedicionAlumbrado> getAllMedicionesAlumbrado();
 	
 	public MedicionAlumbrado insertOrUpdate(MedicionAlumbrado m);
 
 	public boolean remove(int id);
 	
-	public void guardarMedicionAlumbrado(MedicionAlumbrado medicionAlumbrado);
+	public void registrarMedicionAlumbrado(MedicionAlumbrado medicionAlumbrado);
 	
 	
 }

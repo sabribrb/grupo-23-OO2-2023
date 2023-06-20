@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.unla.entities.MedicionAlumbrado;
-import com.unla.entities.MedicionEstacionamiento;
+
 
 @Repository("medicionAlumbradoRepository")
 public interface IMedicionAlumbradoRepository extends JpaRepository<MedicionAlumbrado, Serializable>{
