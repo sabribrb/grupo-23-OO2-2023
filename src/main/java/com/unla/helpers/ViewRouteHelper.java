@@ -22,6 +22,7 @@ public class ViewRouteHelper {
 
     //ALUMBRADO
     public final static String REPORTES_ALUMBRADO = "alumbrado/getAlumbrado";//todas las aulas
+    public final static String NEW_ALUMBRADO = "alumbrado/newAlumbrado"; //crear disp alumbrado
     public final static String REGISTRO_ALUMBRADO = "alumbrado/newAlumbradoMed"; //crear un evento 
-    public final static String NEW_DISP_ALUMBRADO = "alumbrado/newAlumbrado"; //crear disp alumbrado
+   
 }

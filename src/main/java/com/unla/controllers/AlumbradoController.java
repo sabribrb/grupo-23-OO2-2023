@@ -42,11 +42,10 @@ public class AlumbradoController {
 	        return mV;
 	    }
   
-	    @GetMapping("/newDisp")
+	    @GetMapping("/new")
 	    public ModelAndView newAlumbrado() {
-	    
-	    	ModelAndView mV= new ModelAndView(ViewRouteHelper.NEW_DISP_ALUMBRADO);
-	    	mV.addObject("Alumbrado", new Alumbrado());
+	    	ModelAndView mV= new ModelAndView(ViewRouteHelper.NEW_ALUMBRADO);
+	    	mV.addObject("alumbrado", new Alumbrado());
 	    	List<Edificio> edificios = edificioService.getAll();
 	    	mV.addObject("edificios",edificios);
 	    	return mV;

@@ -27,8 +27,8 @@
 
 								<h2 class="fw-bold mb-2 text-uppercase">Nuevo Sensor
 									Alumbrado</h2>
-								<p class="text-white-50 mb-5">Creacion de sensor de
-									Alumbrado</p>
+								<p class="text-white-50 mb-5">"Creacion de sensor de
+									Alumbrado"</p>
 								<form action="#" th:action="@{/alumbrado/create}"
 									th:object="${alumbrado}" method="post">
 									<div class="form-outline form-white mb-4">
@@ -38,7 +38,7 @@
 											Dispositivo</label>
 									</div>
 									<div class="form-outline form-white mb-4">
-										<input type="number" th:field="*{numAulas}"
+										<input type="number" th:field="*{numAula}"
 											class="form-control form-control-lg" required
 											autofocus="autofocus" /> <label class="form-label">Numero de Aula</label>
 									</div>
@@ -55,7 +55,7 @@
 									<button
 										onclick="location.href='alumbrado/todas-las-aulas'"
 										class="btn btn-outline-light btn-lg px-5" value="crear"
-										type="submit">Crear Dispositivo Alumbrado</button>
+										type="submit">Crear Alumbrado</button>
 							</div>
 							<div>
 								<p class="mb-0">

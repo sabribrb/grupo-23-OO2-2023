@@ -6,12 +6,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 
@@ -31,11 +30,11 @@ public class MedicionAlumbradoController {
 	  private ModelMapper modelMapper = new ModelMapper();
 	  
 
-	    @PostMapping("/registrar")
-	    public RedirectView registrarMedicionAlumbrado(@ModelAttribute("medicionAlumbrado") MedicionAlumbrado medicionAlumbrado) {
-	        medicionAlumbradoService.registrarMedicionAlumbrado(modelMapper.map(medicionAlumbrado, MedicionAlumbrado.class));
-	        return new RedirectView(ViewRouteHelper.REGISTRO_ALUMBRADO);
-	        
+	    @GetMapping("/new")
+	    public ModelAndView registrarEvento() {
+	        ModelAndView mV = new ModelAndView(ViewRouteHelper.REGISTRO_ALUMBRADO);
+	        mV.addObject("medicionAlumbrado", new MedicionAlumbrado());
+	        return mV;
 	    }
 
 }

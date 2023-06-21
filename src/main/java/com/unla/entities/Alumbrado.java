@@ -19,9 +19,7 @@ public class Alumbrado extends Dispositivo{
 
 	@Column(name="numAula")
 	private int numAula;
-	
-	@Column(name="libre")
-	private boolean libre;
+
 	
 	public Alumbrado() {}
 
