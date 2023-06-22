@@ -30,6 +30,7 @@ public class ViewRouteHelper {
     public final static String REPORTES_ALUMBRADO = "alumbrado/getAlumbrado";
 
 
-    //REDIRECCIONES: ESTOS NO SON TEMPLATES SINO LOS URL DEL REDIRECTVIEW
+    //REDIRECCIONES: ESTOS NO SON TEMPLATES SINO LOS URL DEL REDIRECTVIEW, QUE VUELVE A TOMAR EL CONTROLLER
     public final static String BANIO_ROOT = "/banios";
+
 }

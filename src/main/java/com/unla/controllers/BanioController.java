@@ -13,6 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
@@ -61,17 +62,17 @@ public class BanioController {
         banio.setActivo(true);
         banio.setEdificio(edificio);
         dispositivoService.insertOrUpdate(modelMapper.map(banio, Banio.class));
-        return new RedirectView(ViewRouteHelper.BANIO_EVENTO);
+        return new RedirectView(ViewRouteHelper.BANIO_ROOT);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/registrar")
-    public RedirectView recordEvent(@RequestParam(value = "id") int id) throws Exception {
+    public ModelAndView recordEvent(@RequestParam(value = "id") int id) throws Exception {
         //agregar parametro ocupar vs liberar
         Banio banio= dispositivoService.getBanioById(id);
         if(!banio.isCerrojo()) medicionBanioService.cerrarPuerta(banio);
         else {medicionBanioService.liberarBanio(banio);}
-        return new RedirectView(ViewRouteHelper.BANIO_ROOT);
+        return new ModelAndView(ViewRouteHelper.BANIO_EVENTO);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")//delete
@@ -86,7 +87,6 @@ public class BanioController {
         return new RedirectView(ViewRouteHelper.BANIO_ROOT);
     }
 
-    //TODO: baja(logica) y modificacion, filtros en el getAllBanios
 
 }
 
