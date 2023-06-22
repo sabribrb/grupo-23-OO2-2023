@@ -21,8 +21,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @Repository("dispositivoRepository")
 public interface IDispositivoRepository extends JpaRepository<Dispositivo, Serializable> {
 
+	
+	@Query("SELECT e FROM Dispositivo e WHERE e.idDispositivo = (:idDispositivo)")
 	public Dispositivo findByIdDispositivo(int idDispositivo);
-
 	
 	@Query("SELECT e FROM Estacionamiento e")
 	public List<Estacionamiento> getAllEstacionamiento();
@@ -39,7 +40,6 @@ public interface IDispositivoRepository extends JpaRepository<Dispositivo, Seria
 	
 	@Query("SELECT a FROM Alumbrado a WHERE a.activo = (:activo)")
 	 List<Alumbrado> findAlumbradosByEnabled(@Param("activo") boolean activo); 
-
-	//public Dispositivo findByNombreDispositivo(String nombre);
+	
 
 }

@@ -23,7 +23,7 @@ public class SecurityConfiguration {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests()
-				.requestMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/img-tp/**", "/banios/**","/mediciones-estacionamiento/**","/estacionamientos/**","/estacionamiento/**","/mediciones/**").permitAll()
+				.requestMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/img-tp/**", "/banios/**","/mediciones-estacionamiento/**","/estacionamientos/**","/estacionamiento/**","/mediciones/**","/eventos/**","/templates/**").permitAll()
 
 				.anyRequest().authenticated()
 			.and()

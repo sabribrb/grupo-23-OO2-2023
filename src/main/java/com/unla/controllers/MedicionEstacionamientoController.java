@@ -49,21 +49,4 @@ public class MedicionEstacionamientoController {
     }
     
     
-	
-	
-	
-   /* @GetMapping("/form")
-    public String mostrarFormularioMedicionEstacionamiento(Model model) {
-        model.addAttribute("medicionEstacionamiento", new MedicionEstacionamiento());
-    	return ViewRouteHelper.MEDICION_EST_FORM;
-    }
-
-    @PostMapping("/guardar")
-    public String guardarMedicionEstacionamiento(
-            @ModelAttribute("medicionEstacionamiento") MedicionEstacionamiento medicionEstacionamiento) {
-        medicionEstacionamientoService.guardarMedicionEstacionamiento(medicionEstacionamiento);
-        return "redirect:/login";
-    }*/
-    
-    
 }

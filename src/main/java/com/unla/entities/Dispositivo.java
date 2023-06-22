@@ -6,7 +6,7 @@ import java.util.Set;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-
+import org.springframework.beans.factory.annotation.Value;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,7 +22,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Getter @Setter
+@Getter
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="dispositivo")
 public abstract class Dispositivo {
@@ -39,6 +39,7 @@ public abstract class Dispositivo {
 	protected LocalDateTime creacion;
 
 	//atributo para la baja logica
+	
 	@Column(name="activo", columnDefinition = "boolean default true")
 	protected boolean activo;
 
@@ -86,6 +87,30 @@ public abstract class Dispositivo {
 				", activo=" + activo +
 				", eventos=" + eventos +
 				'}';
+	}
+
+	public void setIdDispositivo(int idDispositivo) {
+		this.idDispositivo = idDispositivo;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setCreacion(LocalDateTime creacion) {
+		this.creacion = creacion;
+	}
+	 @Value("${dispositivo.activo.default:true}")
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+
+	public void setEventos(Set<Evento> eventos) {
+		this.eventos = eventos;
+	}
+
+	public void setEdificio(Edificio edificio) {
+		this.edificio = edificio;
 	}
 
 }

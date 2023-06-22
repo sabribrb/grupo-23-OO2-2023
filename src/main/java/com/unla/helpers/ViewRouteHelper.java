@@ -2,7 +2,7 @@ package com.unla.helpers;
 
 public class ViewRouteHelper {
     //ESTACIONAMIENTO
-    public final static String MEDICION_EST_FORM = "/login";
+    public final static String MEDICION_EST_FORM = "/index";
 
     //BAÑOS
     public final static String REPORTES_BANIOS = "banios/getBanios";
