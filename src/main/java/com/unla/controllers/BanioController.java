@@ -78,7 +78,7 @@ public class BanioController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")//delete
     @GetMapping("/delete")
     public RedirectView delete(@RequestParam(value="id") int id){
-        dispositivoService.remove(id);
+        dispositivoService.removeDispositivo(id);
         return new RedirectView(ViewRouteHelper.BANIO_ROOT);
     }
 

@@ -1,6 +1,9 @@
 package com.unla.controllers;
 
 import com.unla.helpers.ViewRouteHelper;
+import com.unla.services.IEventoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -14,6 +17,10 @@ import org.springframework.web.servlet.view.RedirectView;
 @RequestMapping("/")
 public class HomeController {
 
+    @Autowired
+    @Qualifier("eventoService")
+    private IEventoService eventoService;
+
     @PreAuthorize("hasRole('ROLE_AUDIT')" +
             "|| hasRole('ROLE_ADMIN')")
     @GetMapping("/index")
@@ -21,6 +28,7 @@ public class HomeController {
         ModelAndView modelAndView = new ModelAndView(ViewRouteHelper.INDEX);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         modelAndView.addObject("username", user.getUsername());
+        modelAndView.addObject("evento", eventoService.getAllEventos());
         return modelAndView;
     }
 
