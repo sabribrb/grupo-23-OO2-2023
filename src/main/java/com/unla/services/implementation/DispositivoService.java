@@ -37,8 +37,13 @@ public class DispositivoService implements IDispositivoService {
 			Dispositivo dispositivoNuevo = findByIdDispositivo(idDispositvo);
 			dispositivoNuevo.setActivo(false);
 			dispositivoRepository.save(dispositivoNuevo);
+<<<<<<< HEAD
 		
 }
+=======
+
+	}
+>>>>>>> e72fe3b5bbee2d07ca9f57059c0dc04cb029de5e
 
 	@Override
 	public List<Banio> getAllBanios() {

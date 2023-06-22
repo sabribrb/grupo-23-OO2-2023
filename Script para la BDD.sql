@@ -19,4 +19,14 @@ INSERT INTO `bd-grupo23-oo2`.edificio (nombre) VALUES
 	('Tita Merello'),
 	('Macedonio Fernández');
     
+
+-- Se agregan usuarios validos con sus roles, la password sera generada por el TestBCryptPasswordEncoder, recordar la palabra que encriptamos para luego iniciar sesion con ella
+insert into `bd-grupo23-oo2`.user (id,enabled,createdat,  password,username) values(1,1, '2023-06-20','$2a$10$9wjz33AXF7KnfprSoYssUOT6ASDjmPB.pBWJoKUAJ8F3sET7Xvhqi', 'grupo23-admin');
+insert into `bd-grupo23-oo2`.user_role (id,role,user_id) values (1,'ROLE_ADMIN',1);
+
+
+-- agregamos segundo usuario simulado, con permiso solo de auditor.
+insert into `bd-grupo23-oo2`.user (id,enabled,createdat,  password,username) values(2,1, '2023-06-20','$2a$10$9wjz33AXF7KnfprSoYssUOT6ASDjmPB.pBWJoKUAJ8F3sET7Xvhqi', 'grupo23-auditor');
+insert into `bd-grupo23-oo2`.user_role (id,role,user_id) values (2,'ROLE_AUDIT',2);
+
 -- Listo! Ya podes probar las funcionalidades de nuestro sistema
