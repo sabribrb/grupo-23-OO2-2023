@@ -13,5 +13,4 @@ public interface IEdificioRepository extends JpaRepository<Edificio, Serializabl
 
 	public abstract Edificio findByIdEdificio(int idEdificio);
 
-	//public abstract Edificio findByName(String name);
 }

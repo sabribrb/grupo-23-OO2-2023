@@ -17,14 +17,14 @@ import lombok.Setter;
 @Getter 
 @Setter
 @Entity
-@Table(name="MedicionAlumbrado")
+@Table(name="medicionAlumbrado")
 public class MedicionAlumbrado {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idMedicionAlum;
 
-	@Column(columnDefinition = "boolean default false")
+	@Column(name="hayGente")
 	private boolean hayGente;
 	
 	@ManyToOne(fetch=FetchType.LAZY)

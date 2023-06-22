@@ -11,7 +11,7 @@ import com.unla.repositories.IEdificioRepository;
 import com.unla.services.IEdificioService;
 
 @Service
-public class EdificioService implements IEdificioService{
+public class EdificioService implements IEdificioService {
 
 	@Autowired
 	@Qualifier("edificioRepository")
@@ -27,11 +27,6 @@ public class EdificioService implements IEdificioService{
 		return edificioRepository.findByIdEdificio(idEdificio);
 	}
 
-	/*@Override
-	public Edificio findByName(String nombre) {
-		return edificioRepository.findByName(nombre);
-	}*/
-
 	@Override
 	public Edificio insertOrUpdate(Edificio d) {
 		Edificio edificioNuevo = edificioRepository.save(d);
@@ -43,7 +38,7 @@ public class EdificioService implements IEdificioService{
 		try {
 			edificioRepository.deleteById(id);
 			return true;
-		}catch (Exception e) {
+		} catch (Exception e) {
 			return false;
 		}
 	}

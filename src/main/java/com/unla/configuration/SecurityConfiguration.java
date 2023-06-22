@@ -28,11 +28,13 @@ public class SecurityConfiguration {
 		auth.userDetailsService(userService).passwordEncoder(new BCryptPasswordEncoder());
 	}
 
+
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests()
 				.requestMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/vendor/bootstrap/css/*",
 						"/vendor/jquery/*", "/vendor/bootstrap/js/*", "/img-tp/**","/error/**","/alumbrado/**", "/MedicionesAlumbrado/**", "/banios/**","/mediciones-estacionamiento/**","/estacionamientos/**","/estacionamiento/**","/mediciones/**").permitAll()
+
 
 				.anyRequest().authenticated()
 			.and()

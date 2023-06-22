@@ -10,8 +10,6 @@ public interface IEdificioService {
 
 	public Edificio findByIdEdificio(int idEdificio);
 
-	//public Edificio findByName(String nombre);
-
 	public Edificio insertOrUpdate(Edificio d);
 
 	public boolean remove(int id);

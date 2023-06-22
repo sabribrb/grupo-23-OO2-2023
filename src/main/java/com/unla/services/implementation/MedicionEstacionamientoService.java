@@ -34,27 +34,17 @@ public class MedicionEstacionamientoService implements IMedicionEstacionamientoS
 	}
 
 	@Override
-	public boolean remove(int id) {
-		try {
-			medicionEstacionamientoRepository.deleteById(id);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-	}
-
-	@Override
 	public void guardarMedicionEstacionamiento(MedicionEstacionamiento medicionEstacionamiento) {
 		medicionEstacionamientoRepository.save(medicionEstacionamiento);
-		// Verificar cambio de estado y crear el evento
-		boolean cambioEstado = medicionEstacionamiento.isOcupado() != medicionEstacionamiento.isOcupado();
+		
+		boolean cambioEstado = medicionEstacionamiento.isOcupado();
 
-		if (cambioEstado == true) {
+		if (cambioEstado == false) {
 			Evento evento = new Evento(LocalDateTime.now(),"El estacionamiento " + medicionEstacionamiento.getDispositivo().getNombre() + " Tiene el Lugar N°"+ medicionEstacionamiento.getNumeroLugar() + " Libre",
 					medicionEstacionamiento.isOcupado(), medicionEstacionamiento.getDispositivo());
 			eventoService.insertOrUpdate(evento);
 			medicionEstacionamientoRepository.save(medicionEstacionamiento);
-			// Lógica para guardar el evento en la base de datos
+			
 		} else {
 			Evento evento = new Evento(LocalDateTime.now(),"El estacionamiento " + medicionEstacionamiento.getDispositivo().getNombre() + " Tiene el Lugar N°"+ medicionEstacionamiento.getNumeroLugar() + " Ocupado",
 					medicionEstacionamiento.isOcupado(), medicionEstacionamiento.getDispositivo());
@@ -68,4 +58,5 @@ public class MedicionEstacionamientoService implements IMedicionEstacionamientoS
 	public List<MedicionEstacionamiento> getAllMedicionesEstacionamiento() {
 		return medicionEstacionamientoRepository.getAllMedicionesEstacionamiento();
 	}
+
 }
