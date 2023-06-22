@@ -24,7 +24,8 @@ public interface IDispositivoRepository extends JpaRepository<Dispositivo, Seria
 	
 	@Query("SELECT e FROM Dispositivo e WHERE e.idDispositivo = (:idDispositivo)")
 	public Dispositivo findByIdDispositivo(int idDispositivo);
-	
+
+	//ESTACIONAMIENTO
 	@Query("SELECT e FROM Estacionamiento e")
 	public List<Estacionamiento> getAllEstacionamiento();
 	
@@ -35,9 +36,20 @@ public interface IDispositivoRepository extends JpaRepository<Dispositivo, Seria
 	@Query("SELECT e FROM Estacionamiento e WHERE e.activo = (:activo)")
 	 List<Estacionamiento> findEstacionamientosByEnabled(@Param("activo") boolean activo); 
 
-	@Query("SELECT b FROM Banio b")
-	public List<Banio> getAllBanios();
+	@Query("SELECT a FROM Alumbrado a")
+	public List<Alumbrado> getAllAlumbrado();
 	
+	//BAÑOS
+	@Query("SELECT b FROM Banio b ")
+	 List<Banio> getAllBanios();
+
+	public Banio findBanioByIdDispositivo(int idDispositivo);
+
+	@Query("SELECT b FROM Banio b WHERE b.activo = (:activo)")
+	List<Banio> findBaniosByEnabled(@Param("activo") boolean activo);
+
+	//ALUMBRADO
+
 	@Query("SELECT a FROM Alumbrado a WHERE a.activo = (:activo)")
 	 List<Alumbrado> findAlumbradosByEnabled(@Param("activo") boolean activo); 
 	

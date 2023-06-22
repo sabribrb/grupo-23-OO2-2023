@@ -3,6 +3,7 @@ package com.unla.services.implementation;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.unla.entities.Alumbrado;
 import com.unla.entities.Banio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -45,6 +46,10 @@ public class DispositivoService implements IDispositivoService {
 	}
 
 	@Override
+	public Banio getBanioById(int id){
+		return dispositivoRepository.findBanioByIdDispositivo(id);
+	}
+	@Override
 	public List<Estacionamiento> getAllEstacionamiento() {
 		List<Estacionamiento> lista = dispositivoRepository.getAllEstacionamiento();
 		List<Estacionamiento> aux = new ArrayList<Estacionamiento>();
@@ -55,6 +60,10 @@ public class DispositivoService implements IDispositivoService {
 
 		}
 		return aux;
+	}
+	
+	public List<Alumbrado> getAllAlumbrado() {
+		return dispositivoRepository.getAllAlumbrado();
 	}
 
 	@Override
