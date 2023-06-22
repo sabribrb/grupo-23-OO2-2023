@@ -9,6 +9,7 @@ import com.unla.services.IMedicionBanioService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -34,7 +35,8 @@ public class BanioController {
 
     private ModelMapper modelMapper = new ModelMapper();
 
-    @GetMapping("/index")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping("")
     public ModelAndView index() {
         ModelAndView mV = new ModelAndView();
         mV.setViewName(ViewRouteHelper.INDEX_BANIOS);
@@ -43,6 +45,7 @@ public class BanioController {
     }
 
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/new")
     public ModelAndView create() {
         ModelAndView mV = new ModelAndView(ViewRouteHelper.NEW_BANIO);
@@ -55,20 +58,33 @@ public class BanioController {
     @PostMapping("/create")
     public RedirectView create(@ModelAttribute("banio") Banio banio,@RequestParam("edificioId") int edificioId) {
         Edificio edificio = edificioService.findByIdEdificio(edificioId);
+        banio.setActivo(true);
+        banio.setEdificio(edificio);
         dispositivoService.insertOrUpdate(modelMapper.map(banio, Banio.class));
-        return new RedirectView(ViewRouteHelper.REDIRECCION_BANIOS);
-    } //TODO: no me carga el edificio
+        return new RedirectView(ViewRouteHelper.BANIO_EVENTO);
+    }
 
-    @GetMapping("/registrar/{id}")
-    public RedirectView recordEvent(@PathVariable int id) throws Exception {
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping("/registrar")
+    public RedirectView recordEvent(@RequestParam(value = "id") int id) throws Exception {
         //agregar parametro ocupar vs liberar
         Banio banio= dispositivoService.getBanioById(id);
         if(!banio.isCerrojo()) medicionBanioService.cerrarPuerta(banio);
         else {medicionBanioService.liberarBanio(banio);}
-        return new RedirectView(ViewRouteHelper.REDIRECCION_BANIOS);
+        return new RedirectView(ViewRouteHelper.BANIO_ROOT);
     }
 
-    //delete
+    @PreAuthorize("hasRole('ROLE_ADMIN')")//delete
+    @GetMapping("/delete")
+    public RedirectView delete(@RequestParam(value="id") int id){
+        dispositivoService.remove(id);
+        return new RedirectView(ViewRouteHelper.BANIO_ROOT);
+    }
+
+    @GetMapping("/")
+    public RedirectView redirectToBanioIndex() {
+        return new RedirectView(ViewRouteHelper.BANIO_ROOT);
+    }
 
     //TODO: baja(logica) y modificacion, filtros en el getAllBanios
 

@@ -38,7 +38,7 @@ public interface IDispositivoRepository extends JpaRepository<Dispositivo, Seria
 	public List<Alumbrado> getAllAlumbrado();
 	
 	//BAÑOS
-	@Query("SELECT b FROM Banio b ")
+	@Query("SELECT b FROM Banio b WHERE b.activo = true")
 	 List<Banio> getAllBanios();
 
 	public Banio findBanioByIdDispositivo(int idDispositivo);

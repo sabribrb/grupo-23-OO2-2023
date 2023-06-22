@@ -48,14 +48,18 @@
                                 <td><span th:text="${banio.creacion}"/></td>
                                 <td><span th:text="${banio.edificio}"/></td>
                                 <td>
-                                    <button
-                                            onclick="location.href='/registrar/{banio.idDispositivo}'"
-                                            class="btn btn-success" type="button">Probar Cerrojo
-                                    </button>
+                                    <a style="text-decoration: none"
+                                       th:href="@{/banios/registrar(id=${banio.idDispositivo})}">  <button
+                                            class="btn btn-success" type="button">
+                                            Probar Cerrojo </button></a>
                                 </td>
-<!--                                TODO: revisar a ver si puede redirigirme a mis mediciones, y eliminar correctamente-->
-                                <td><a th:href="@{/delete/{id}(id=${idDispositivo})}"
-                                       class="btn btn-danger">Eliminar</a></td>
+                                <td>
+                                    <a style="text-decoration: none; color: white;"
+                                       th:href="@{/banios/delete(id=${banio.idDispositivo})}">
+                                    <button class="btn btn-danger" type="button">
+                                        Eliminar</button>  </a>
+
+                                </td>
                             </tr>
                             </tbody>
                         </table>

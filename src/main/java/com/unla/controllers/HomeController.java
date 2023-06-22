@@ -1,6 +1,7 @@
 package com.unla.controllers;
 
 import com.unla.helpers.ViewRouteHelper;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,8 @@ import org.springframework.web.servlet.view.RedirectView;
 @RequestMapping("/")
 public class HomeController {
 
+    @PreAuthorize("hasRole('ROLE_AUDIT')" +
+            "|| hasRole('ROLE_ADMIN')")
     @GetMapping("/index")
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView(ViewRouteHelper.INDEX);
