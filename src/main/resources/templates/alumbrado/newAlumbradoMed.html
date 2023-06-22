@@ -30,34 +30,29 @@
 								<p class="text-white-50 mb-5">Creacion de Medicion de
 									Estacionamiento"</p>
 								<form action="#"
-									th:action="@{/medicion_alumbrado/new}"
+									th:action="@{/medicion_alumbrado/create}"
 									th:object="${medicionAlumbrado}" method="post">
 									<div class="form-outline form-white mb-4">
 										<input type="number" th:field="*{dispositivo}"
 											class="form-control form-control-lg" required
 											autofocus="autofocus" /> <label class="form-label">Numero
 											Dispositivo</label>
-								
-									<!--div class="form-outline form-white mb-4">
-										<input type="checkbox" th:checked="*{hayGente}"
-											class="form-check-input" required autofocus="autofocus" /> <label
-											class="form-check-label">Hay Gente?</label>
-									</div-->
+		
 									<div class="form-outline form-white mb-4">
 										<input type="number" th:field="*{hayGente}"
 											class="form-control form-control-lg" required
 											autofocus="autofocus" /> <label class="form-label">Hay gente</label>
 									</div>
 									<button
-										onclick="location.href='/alumbrado/todas-las-aulas'"
+										onclick="location.href='/alumbrado'"
 										class="btn btn-outline-light btn-lg px-5" value="crear"
 										type="submit">Crear Medicion</button>
 							</div>
 							<div>
 								<p class="mb-0">
-									<span>Ver los dispositivos creados? <a
+									<span>Ver las mediciones? <a
 										class="text-white-50 fw-bold"
-										href="/alumbrado/todas-las-aulas">Aqui</a></span>
+										href="/medicion_alumbrado">Aqui</a></span>
 								</p>
 							</div>
 							</form>

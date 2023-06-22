@@ -29,12 +29,26 @@ public class MedicionAlumbradoController {
 	  
 	  private ModelMapper modelMapper = new ModelMapper();
 	  
-
+		
+	    @GetMapping("")
+	    public ModelAndView getMedicionesAlumbrado() {
+	        ModelAndView mV = new ModelAndView();
+	        mV.setViewName(ViewRouteHelper.REPORTES_ALUMBRADO_MED);
+	        mV.addObject("medicionAlumbrado", medicionAlumbradoService.getAllMedicionesAlumbrado());
+	        return mV;
+	    }
+	    
 	    @GetMapping("/new")
-	    public ModelAndView registrarEvento() {
+	    public ModelAndView registroMedicionAlumbrado() {
 	        ModelAndView mV = new ModelAndView(ViewRouteHelper.REGISTRO_ALUMBRADO);
 	        mV.addObject("medicionAlumbrado", new MedicionAlumbrado());
 	        return mV;
 	    }
 
+	    @PostMapping("/create")
+	    public RedirectView create(@ModelAttribute("medicionAlumbrado") MedicionAlumbrado medicion) {
+	    	medicionAlumbradoService.registrarMedicionAlumbrado(modelMapper.map(medicion, MedicionAlumbrado.class));
+	        return new RedirectView(ViewRouteHelper.ALUMBRADO_MEDICION_ROOT);
+	    }
+	    
 }

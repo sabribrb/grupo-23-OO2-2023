@@ -34,7 +34,7 @@ public class AlumbradoController {
 	@Qualifier("edificioService")
 	private IEdificioService edificioService;
 
-	    @GetMapping("/todas-las-aulas")
+	    @GetMapping("")
 	    public ModelAndView getAlumbrado() {
 	        ModelAndView mV = new ModelAndView();
 	        mV.setViewName(ViewRouteHelper.REPORTES_ALUMBRADO);
@@ -55,9 +55,8 @@ public class AlumbradoController {
 	    public RedirectView create(@ModelAttribute("alumbrado") Alumbrado alumbrado,@RequestParam("edificioId") int edificioId) {
 	        Edificio edificio = edificioService.findByIdEdificio(edificioId);
 	        alumbrado.setEdificio(edificio);
-	        alumbrado.setNombre("dispositivo Alumbrado");
 	        dispositivoService.insertOrUpdate(modelMapper.map(alumbrado, Alumbrado.class));
-	        return new RedirectView(ViewRouteHelper.REPORTES_ALUMBRADO);
+	        return new RedirectView(ViewRouteHelper.ALUMBRADO_ROOT);
 	    }
 
 	

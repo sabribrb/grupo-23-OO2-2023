@@ -18,7 +18,9 @@ public class MedicionAlumbradoService implements IMedicionAlumbradoService {
 	@Autowired
 	@Qualifier("medicionAlumbradoRepository")
 	private IMedicionAlumbradoRepository medicionAlumbradoRepository;
-	
+
+	@Autowired
+	@Qualifier("eventoService")
 	private EventoService eventoService;
 
 	@Override
@@ -61,6 +63,6 @@ public class MedicionAlumbradoService implements IMedicionAlumbradoService {
 	@Override
 	public List<MedicionAlumbrado> getAllMedicionesAlumbrado() {
 		// TODO Auto-generated method stub
-		return null;
+		return medicionAlumbradoRepository.getAllMedicionesAlumbrado();
 	}
 }
