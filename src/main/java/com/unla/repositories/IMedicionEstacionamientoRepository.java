@@ -20,4 +20,5 @@ public interface IMedicionEstacionamientoRepository extends JpaRepository<Medici
 	@Query("SELECT m FROM MedicionEstacionamiento m")
 	public List<MedicionEstacionamiento> getAllMedicionesEstacionamiento();
 	
+	
 }

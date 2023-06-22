@@ -62,7 +62,7 @@ public class AlumbradoController {
 
 	    @GetMapping("/delete")
 	    public RedirectView delete(@RequestParam(value="id") int id){
-	        dispositivoService.remove(id);
+	        dispositivoService.removeDispositivo(id);
 	        return new RedirectView(ViewRouteHelper.ALUMBRADO_ROOT);
 	    }
 	

@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @Repository("dispositivoRepository")
 public interface IDispositivoRepository extends JpaRepository<Dispositivo, Serializable> {
 
+	
+	@Query("SELECT e FROM Dispositivo e WHERE e.idDispositivo = (:idDispositivo)")
 	public Dispositivo findByIdDispositivo(int idDispositivo);
 
 	//ESTACIONAMIENTO
@@ -50,7 +52,5 @@ public interface IDispositivoRepository extends JpaRepository<Dispositivo, Seria
 	public List<Alumbrado> getAllAlumbrado();
 
 	
-
-	//public Dispositivo findByNombreDispositivo(String nombre);
 
 }
