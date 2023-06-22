@@ -4,8 +4,8 @@ public class ViewRouteHelper {
     //EDIFICIO
     public final static String REPORTES_EDIFICIOS = "/getEdificios";
 
-    //ESTACIONAMIENTO
-    public final static String MEDICION_EST_FORM = "/login";
+    //INDEX
+    public final static String MEDICION_EST_FORM = "/index";
 
     //BAÑOS
     public final static String REPORTES_BANIOS = "banios/getBanios";

@@ -13,11 +13,12 @@ public interface IDispositivoService {
 
 	public List<Dispositivo> getAll();
 
-	public Dispositivo findByIdDispositivo(int idDispositivo);
-
 	public Dispositivo insertOrUpdate(Dispositivo d);
 
-	public boolean remove(int id);
+	public void removeDispositivo(int idDispositvo);
+	
+	@ModelAttribute("Dispositivo")
+	public Dispositivo findByIdDispositivo(int idDispositivo);
 	
 	@ModelAttribute("banios")
 	public List<Banio> getAllBanios();

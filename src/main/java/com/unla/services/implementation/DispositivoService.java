@@ -15,7 +15,6 @@ import com.unla.entities.Estacionamiento;
 import com.unla.repositories.IDispositivoRepository;
 import com.unla.services.IDispositivoService;
 
-
 @Service
 public class DispositivoService implements IDispositivoService {
 
@@ -23,17 +22,10 @@ public class DispositivoService implements IDispositivoService {
 	@Qualifier("dispositivoRepository")
 	private IDispositivoRepository dispositivoRepository;
 
-
 	@Override
-	public List<Dispositivo> getAll(){
+	public List<Dispositivo> getAll() {
 		return dispositivoRepository.findAll();
 	}
-
-	@Override
-	public Dispositivo findByIdDispositivo(int idDispositivo) {
-		return dispositivoRepository.findByIdDispositivo(idDispositivo);
-	}
-
 
 	@Override
 	public Dispositivo insertOrUpdate(Dispositivo d) {
@@ -42,14 +34,10 @@ public class DispositivoService implements IDispositivoService {
 	}
 
 	@Override
-	public boolean remove(int id) {
-		try {
-			Dispositivo dispositivoNuevo=findByIdDispositivo(id);
+	public void removeDispositivo(int idDispositvo) {
+			Dispositivo dispositivoNuevo = findByIdDispositivo(idDispositvo);
 			dispositivoNuevo.setActivo(false);
-			return true;
-		}catch (Exception e) {
-			return false;
-		}
+			dispositivoRepository.save(dispositivoNuevo);
 	}
 
 	@Override
@@ -63,13 +51,13 @@ public class DispositivoService implements IDispositivoService {
 	}
 	@Override
 	public List<Estacionamiento> getAllEstacionamiento() {
-		List<Estacionamiento>lista=dispositivoRepository.getAllEstacionamiento();
-		List<Estacionamiento>aux=new ArrayList<Estacionamiento>();
+		List<Estacionamiento> lista = dispositivoRepository.getAllEstacionamiento();
+		List<Estacionamiento> aux = new ArrayList<Estacionamiento>();
 		for (int i = 0; i < lista.size(); i++) {
-			if (lista.get(i).isActivo()==false) {
+			if (lista.get(i).isActivo() == true) {
 				aux.add(lista.get(i));
 			}
-			
+
 		}
 		return aux;
 	}
@@ -78,10 +66,9 @@ public class DispositivoService implements IDispositivoService {
 		return dispositivoRepository.getAllAlumbrado();
 	}
 
-	/*@Override
-	public Dispositivo findByNombreDispositivo(String nombre) {
-		return dispositivoRepository.findByNombreDispositivo(nombre);
-	}*/
+	@Override
+	public Dispositivo findByIdDispositivo(int idDispositivo) {
+		return dispositivoRepository.findByIdDispositivo(idDispositivo);
+	}
 
-	
 }

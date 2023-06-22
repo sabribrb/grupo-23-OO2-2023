@@ -1,10 +1,13 @@
 package com.unla.services.implementation;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
+import com.unla.entities.Banio;
 import com.unla.entities.Evento;
 import com.unla.repositories.IEventoRepository;
 import com.unla.services.IEventoService;
@@ -40,6 +43,26 @@ public class EventoService implements IEventoService{
 		}catch (Exception e) {
 			return false;
 		}
+	}
+
+	@Override
+	public List<Evento> getAllEventos() {
+		return eventoRepository.getAllEventos();
+	}
+
+	@Override
+	public List<Evento> findEventosByFecha(LocalDateTime horaEvento) {
+		return eventoRepository.findEventosByFecha(horaEvento);
+	}
+
+	@Override
+	public List<Evento> findEventosByDispositivo(int idDispositivo) {
+		return eventoRepository.findEventosByDispositivo(idDispositivo);
+	}
+
+	@Override
+	public List<Evento> findByHoraEventoAndDispositivoId(LocalDateTime fecha, int dispositivoId) {
+		return eventoRepository.findByHoraEventoAndDispositivoId(fecha, dispositivoId);
 	}
 
 }
