@@ -1,13 +1,21 @@
 package com.unla.controllers;
 
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
+
+
 import com.unla.entities.MedicionAlumbrado;
+import com.unla.helpers.ViewRouteHelper;
 import com.unla.services.IMedicionAlumbradoService;
 
 
@@ -21,11 +29,26 @@ public class MedicionAlumbradoController {
 	  
 	  private ModelMapper modelMapper = new ModelMapper();
 	  
-
-	    @PostMapping("/guardar")
-	    public String guardarMedicionAlumbrado(
-	        @ModelAttribute("medicionAlumbrado") MedicionAlumbrado medicionAlumbrado) {
-	        medicionAlumbradoService.guardarMedicionAlumbrado(medicionAlumbrado);
-	        return "redirect:/login";
+		
+	    @GetMapping("")
+	    public ModelAndView getMedicionesAlumbrado() {
+	        ModelAndView mV = new ModelAndView();
+	        mV.setViewName(ViewRouteHelper.REPORTES_ALUMBRADO_MED);
+	        mV.addObject("medicionAlumbrado", medicionAlumbradoService.getAllMedicionesAlumbrado());
+	        return mV;
 	    }
+	    
+	    @GetMapping("/new")
+	    public ModelAndView registroMedicionAlumbrado() {
+	        ModelAndView mV = new ModelAndView(ViewRouteHelper.REGISTRO_ALUMBRADO);
+	        mV.addObject("medicionAlumbrado", new MedicionAlumbrado());
+	        return mV;
+	    }
+
+	    @PostMapping("/create")
+	    public RedirectView create(@ModelAttribute("medicionAlumbrado") MedicionAlumbrado medicion) {
+	    	medicionAlumbradoService.registrarMedicionAlumbrado(modelMapper.map(medicion, MedicionAlumbrado.class));
+	        return new RedirectView(ViewRouteHelper.ALUMBRADO_MEDICION_ROOT);
+	    }
+	    
 }

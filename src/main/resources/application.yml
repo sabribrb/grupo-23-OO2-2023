@@ -7,7 +7,7 @@ spring:
       url: jdbc:mysql://localhost/bd-grupo23-oo2?useSSL=false
       dbname: bd-grupo23-oo2
       username: root
-      password: 
+      password: 44366782
   main:
      allow-circular-references: true
   jpa:

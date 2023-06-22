@@ -9,7 +9,7 @@
 	crossorigin="anonymous">
 
 
-<title>Nueva Medicion Alumbrado</title>
+<title>Nuevo Sensor Alumbrado</title>
 
 
 </head>
@@ -25,34 +25,43 @@
 
 							<div class="mb-md-5 mt-md-5 pb-3">
 
-								<h2 class="fw-bold mb-2 text-uppercase">Nueva Medicion
+								<h2 class="fw-bold mb-2 text-uppercase">Nuevo Sensor
 									Alumbrado</h2>
-								<p class="text-white-50 mb-5">Creacion de Medicion de
-									Estacionamiento"</p>
-								<form action="#"
-									th:action="@{/medicion_alumbrado/create}"
-									th:object="${medicionAlumbrado}" method="post">
+								<p class="text-white-50 mb-5">"Creacion de sensor de
+									Alumbrado"</p>
+								<form action="#" th:action="@{/alumbrado/create}"
+									th:object="${alumbrado}" method="post">
 									<div class="form-outline form-white mb-4">
-										<input type="number" th:field="*{dispositivo}"
+										<input type="text" th:field="*{nombre}"
 											class="form-control form-control-lg" required
-											autofocus="autofocus" /> <label class="form-label">Numero
+											autofocus="autofocus" /> <label class="form-label">Nombre
 											Dispositivo</label>
-		
+									</div>
 									<div class="form-outline form-white mb-4">
-										<input type="number" th:field="*{hayGente}"
+										<input type="number" th:field="*{numAula}"
 											class="form-control form-control-lg" required
-											autofocus="autofocus" /> <label class="form-label">Hay gente</label>
+											autofocus="autofocus" /> <label class="form-label">Numero de Aula</label>
+									</div>
+									<div class="form-outline form-white mb-4">
+										<select name="edificioId"
+											class="form-select form-select-lg mb-1"
+											aria-label=".form-select-lg example">
+											<option selected></option>
+											<option th:each="edificio : ${edificios}"
+												th:value="${edificio.idEdificio}"
+												th:text="${edificio.nombre}"></option>
+										</select> <label class="form-label mb-3">Edificio</label>
 									</div>
 									<button
-										onclick="location.href='/alumbrado'"
+										onclick="location.href='alumbrado'"
 										class="btn btn-outline-light btn-lg px-5" value="crear"
-										type="submit">Crear Medicion</button>
+										type="submit">Crear Alumbrado</button>
 							</div>
 							<div>
 								<p class="mb-0">
-									<span>Ver las mediciones? <a
+									<span>Ver los dispositivos creados? <a
 										class="text-white-50 fw-bold"
-										href="/medicion_alumbrado">Aqui</a></span>
+										href="/alumbrado">Aqui</a></span>
 								</p>
 							</div>
 							</form>

@@ -27,7 +27,7 @@ public interface IDispositivoService {
 	@ModelAttribute("estacionamiento")
 	public List<Estacionamiento> getAllEstacionamiento();
 	
-	@ModelAttribute
+	@ModelAttribute("alumbrado")
 	public List<Alumbrado> getAllAlumbrado();
 	
 }
