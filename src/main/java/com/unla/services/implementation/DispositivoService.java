@@ -46,6 +46,7 @@ public class DispositivoService implements IDispositivoService {
 		try {
 			Dispositivo dispositivoNuevo=findByIdDispositivo(id);
 			dispositivoNuevo.setActivo(false);
+			dispositivoRepository.save(dispositivoNuevo);
 			return true;
 		}catch (Exception e) {
 			return false;

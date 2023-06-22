@@ -54,10 +54,16 @@ public class AlumbradoController {
 	    @PostMapping("/create")
 	    public RedirectView create(@ModelAttribute("alumbrado") Alumbrado alumbrado,@RequestParam("edificioId") int edificioId) {
 	        Edificio edificio = edificioService.findByIdEdificio(edificioId);
+	        alumbrado.setActivo(true);
 	        alumbrado.setEdificio(edificio);
 	        dispositivoService.insertOrUpdate(modelMapper.map(alumbrado, Alumbrado.class));
 	        return new RedirectView(ViewRouteHelper.ALUMBRADO_ROOT);
 	    }
 
+	    @GetMapping("/delete")
+	    public RedirectView delete(@RequestParam(value="id") int id){
+	        dispositivoService.remove(id);
+	        return new RedirectView(ViewRouteHelper.ALUMBRADO_ROOT);
+	    }
 	
 }

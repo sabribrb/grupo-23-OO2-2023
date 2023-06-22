@@ -45,7 +45,11 @@
 										<td th:text="${alumbrado.numAula}"></td>
 										<td th:text="${alumbrado.creacion}"></td>
 										<td><button onclick="location.href='/medicion_alumbrado/new'" class="btn btn-success" type="button">Generar Medición</button></td>
-										<td><a th:href="@{/delete/{id}(id=${idDispositivo})}" class="btn btn-danger">Eliminar</a></td>
+										<td> <a style="text-decoration: none; color: white;"
+                                       th:href="@{/alumbrado/delete(id=${alumbrado.idDispositivo})}">
+                                    <button class="btn btn-danger" type="button"> Eliminar</button>  </a>
+
+                                </td>
 									</tr>
 								</tbody>
 							</table>
@@ -55,6 +59,7 @@
 								style="border: white 2px solid" type="button">Agregar
 								Aula</button>
 						</div>
+				
 					</div>
 		</section>
 	</div>
