@@ -26,8 +26,11 @@
 				style="justify-content: end;">
 				<div class="navbar-nav">
 					<a class="nav-link" href="/login">Inicio</a> <a class="nav-link"
-						href="/mediciones-estacionamiento/todas">Mediciones</a> <a
-						class="nav-link" id="boton-nav" href="#">Usuario</a>
+						href="/mediciones-estacionamiento/todas">Mediciones</a>
+					<form th:action="@{/logout}" method="post">
+						<button type="submit" class="nav-link btn btn-link" id="boton-nav">Cerrar
+							sesión</button>
+					</form>
 				</div>
 			</div>
 		</nav>
