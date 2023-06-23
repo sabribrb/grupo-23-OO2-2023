@@ -33,7 +33,7 @@ public class SecurityConfiguration {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests()
 				.requestMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/vendor/bootstrap/css/*",
-						"/vendor/jquery/*", "/vendor/bootstrap/js/*", "/img-tp/**","/error/**","/alumbrado/**", "/MedicionesAlumbrado/**", "/banios/**","/mediciones-estacionamiento/**","/estacionamientos/**","/estacionamiento/**","/mediciones/**").permitAll()
+						"/vendor/jquery/*", "/vendor/bootstrap/js/*", "/img-tp/**","/error/**").permitAll()
 
 
 				.anyRequest().authenticated()

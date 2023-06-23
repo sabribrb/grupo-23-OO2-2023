@@ -61,8 +61,11 @@ public class EventoService implements IEventoService{
 	}
 
 	@Override
-	public List<Evento> findByHoraEventoAndDispositivoId(LocalDateTime fecha, int dispositivoId) {
-		return eventoRepository.findByHoraEventoAndDispositivoId(fecha, dispositivoId);
+	public List<Evento> findByHoraEventoAndDispositivoId(LocalDateTime fecha, Integer dispositivoId) {
+		if(fecha!=null && dispositivoId!=null){
+			return eventoRepository.findByHoraEventoAndDispositivoId(fecha, dispositivoId);
+		}
+		return eventoRepository.getAllEventos();
 	}
 
 }

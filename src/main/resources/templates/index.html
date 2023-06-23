@@ -186,28 +186,32 @@
     <div class="row d-flex justify-content-center align-items-center">
         <div class="card-body p-3 text-center">
             <div class="mb-md-5 mt-md-2 pb-3">
-                <form action="/login" method="get">
+                <form th:action="@{/filtrar}" >
                     <div class="form-group">
-                        <label for="fecha">Filtrar por fecha:</label> <input type="datetime-local" id="fecha"
-                                                                             name="fecha" class="form-control">
+                        <label for="fecha">Filtrar por fecha:</label> <input th:value="${fecha}" type="date" id="fecha"
+                                                                             th:name="fecha" class="form-control">
                     </div>
-                    <div class="form-group" id="seccion-eventos">
-                        <label for="dispositivo">Filtrar por dispositivo:</label> <select id="dispositivo"
-                                                                                          name="dispositivo" class="form-control">
-                        <option value="">Todos los dispositivos</option>
-                        <!-- Aquí puedes generar las opciones del select con los dispositivos disponibles -->
-                        <!-- Por ejemplo: -->
-                        <option value="1">Dispositivo 1</option>
-                        <option value="2">Dispositivo 2</option>
-                        <!-- ... -->
-                    </select>
+                    <div class="form-group">
+                        <label for="idDispositivo">Filtrar por Id:</label> <input th:value="${idDispositivo}" type="number" id="idDispositivo"
+                                                                             th:name="idDispositivo" class="form-control">
                     </div>
+<!--                    <div class="form-group" id="seccion-eventos">-->
+<!--                        <label for="dispositivo">Filtrar por dispositivo:</label> <select id="dispositivo"-->
+<!--                                                                                          name="dispositivo" class="form-control">-->
+<!--                        <option value="">Todos los dispositivos</option>-->
+<!--                        &lt;!&ndash; Aquí puedes generar las opciones del select con los dispositivos disponibles &ndash;&gt;-->
+<!--                        &lt;!&ndash; Por ejemplo: &ndash;&gt;-->
+<!--                        <option value="1">Dispositivo 1</option>-->
+<!--                        <option value="2">Dispositivo 2</option>-->
+<!--                        &lt;!&ndash; ... &ndash;&gt;-->
+<!--                    </select>-->
+<!--                    </div>-->
 
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary">Filtrar</button>
+                        <button type="submit" class="btn btn-primary">Filtrar</button>
 
                     </div>
-                    </button>
+                    </form>
             </div>
         </div>
 

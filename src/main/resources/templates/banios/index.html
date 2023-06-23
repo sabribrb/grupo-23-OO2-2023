@@ -9,10 +9,30 @@
           crossorigin="anonymous">
 </head>
 <body style="background: #212529; color: white">
+ <header>
+    <!-- Menu de navegacion -->
+    <nav class="navbar navbar-expand-lg navbar-dark w-100"
+         style="background-color: rgb(46, 51, 57); overflow: hidden; background-color: #333; position: fixed; top: 0; z-index: 5; padding-left: 7%; padding-right: 7%;">
+        </a> <a class="navbar-brand" style="margin-right: auto;" href="#">UNLa</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup"
+             style="justify-content: end;">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/index">Inicio</a>
+                <a
+                        class="nav-link" id="boton-nav" href="#">Usuario</a>
+            </div>
+        </div>
+    </nav>
+ </header>
 
-<div class="text-center"
-     style="margin-left: 18%; margin-right: 18%; margin-top: 40px; font-family: Candara">
-    <h1>
+ <div class="text-center"
+      style="margin-left: 18%; margin-right: 18%; margin-top: 40px; font-family: Candara">
+     <h1 style="margin-top: 10%;">
         <u>TODOS LOS BAÑOS</u>
     </h1>
 </div>
@@ -49,15 +69,20 @@
                                 <td><span th:text="${banio.edificio}"/></td>
                                 <td>
                                     <a style="text-decoration: none"
-                                       th:href="@{/banios/registrar(id=${banio.idDispositivo})}">  <button
-                                            class="btn btn-success" type="button">
-                                            Probar Cerrojo </button></a>
+                                       th:href="@{/banios/registrar(id=${banio.idDispositivo})}">
+                                        <button
+                                                class="btn btn-success" type="button">
+                                            Probar Cerrojo
+                                        </button>
+                                    </a>
                                 </td>
                                 <td>
                                     <a style="text-decoration: none; color: white;"
                                        th:href="@{/banios/delete(id=${banio.idDispositivo})}">
-                                    <button class="btn btn-danger" type="button">
-                                        Eliminar</button>  </a>
+                                        <button class="btn btn-danger" type="button">
+                                            Eliminar
+                                        </button>
+                                    </a>
 
                                 </td>
                             </tr>
