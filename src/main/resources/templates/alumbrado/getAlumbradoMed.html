@@ -31,6 +31,7 @@
 									<tr>
 										<th>ID</th>
 										<th>Dispositivo</th>
+										<th>Nombre</th>
 										<th>Ocupado</th>
 									</tr>
 								</thead>
@@ -39,6 +40,7 @@
 										th:each="medicionAlumbrado : ${medicionAlumbrado}">
 										<td th:text="${medicionAlumbrado.idMedicionAlum}"></td>
 										<td th:text="${medicionAlumbrado.dispositivo.idDispositivo}"></td>
+										<td th:text="${medicionAlumbrado.dispositivo.nombre}"></td>
 										<td th:text="${medicionAlumbrado.hayGente}"></td>
 									</tr>
 								</tbody>

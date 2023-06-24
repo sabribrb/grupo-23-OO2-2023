@@ -5,6 +5,7 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -34,6 +35,7 @@ public class AlumbradoController {
 	@Qualifier("edificioService")
 	private IEdificioService edificioService;
 
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 	    @GetMapping("")
 	    public ModelAndView getAlumbrado() {
 	        ModelAndView mV = new ModelAndView();
@@ -41,7 +43,8 @@ public class AlumbradoController {
 	        mV.addObject("alumbrado", dispositivoService.getAllAlumbrado());
 	        return mV;
 	    }
-  
+		
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 	    @GetMapping("/new")
 	    public ModelAndView newAlumbrado() {
 	    	ModelAndView mV= new ModelAndView(ViewRouteHelper.NEW_ALUMBRADO);
@@ -54,10 +57,17 @@ public class AlumbradoController {
 	    @PostMapping("/create")
 	    public RedirectView create(@ModelAttribute("alumbrado") Alumbrado alumbrado,@RequestParam("edificioId") int edificioId) {
 	        Edificio edificio = edificioService.findByIdEdificio(edificioId);
+	        alumbrado.setActivo(true);
 	        alumbrado.setEdificio(edificio);
 	        dispositivoService.insertOrUpdate(modelMapper.map(alumbrado, Alumbrado.class));
 	        return new RedirectView(ViewRouteHelper.ALUMBRADO_ROOT);
 	    }
-
+	    
+	    @PreAuthorize("hasRole('ROLE_ADMIN')")
+	    @GetMapping("/delete")
+	    public RedirectView delete(@RequestParam(value="id") int id){
+	        dispositivoService.removeDispositivo(id);
+	        return new RedirectView(ViewRouteHelper.ALUMBRADO_ROOT);
+	    }
 	
 }

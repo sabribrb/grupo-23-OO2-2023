@@ -5,6 +5,7 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,7 +30,8 @@ public class MedicionAlumbradoController {
 	  
 	  private ModelMapper modelMapper = new ModelMapper();
 	  
-		
+	   @PreAuthorize("hasRole('ROLE_AUDIT')" +
+	            "|| hasRole('ROLE_ADMIN')")
 	    @GetMapping("")
 	    public ModelAndView getMedicionesAlumbrado() {
 	        ModelAndView mV = new ModelAndView();
@@ -38,6 +40,7 @@ public class MedicionAlumbradoController {
 	        return mV;
 	    }
 	    
+	    @PreAuthorize("hasRole('ROLE_ADMIN')")
 	    @GetMapping("/new")
 	    public ModelAndView registroMedicionAlumbrado() {
 	        ModelAndView mV = new ModelAndView(ViewRouteHelper.REGISTRO_ALUMBRADO);

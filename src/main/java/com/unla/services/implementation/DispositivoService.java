@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.unla.entities.Banio;
 import com.unla.entities.Dispositivo;
 import com.unla.entities.Estacionamiento;
 import com.unla.repositories.IDispositivoRepository;
@@ -38,7 +37,6 @@ public class DispositivoService implements IDispositivoService {
 			Dispositivo dispositivoNuevo = findByIdDispositivo(idDispositvo);
 			dispositivoNuevo.setActivo(false);
 			dispositivoRepository.save(dispositivoNuevo);
-
 	}
 
 	@Override
@@ -58,7 +56,6 @@ public class DispositivoService implements IDispositivoService {
 			if (lista.get(i).isActivo() == true) {
 				aux.add(lista.get(i));
 			}
-
 		}
 		return aux;
 	}
@@ -66,7 +63,10 @@ public class DispositivoService implements IDispositivoService {
 	public List<Alumbrado> getAllAlumbrado() {
 		return dispositivoRepository.getAllAlumbrado();
 	}
-
+	
+	public Alumbrado getAlumbradoById(int id){
+		return dispositivoRepository.findAlumbradoByIdDispositivo(id);
+	}
 	@Override
 	public Dispositivo findByIdDispositivo(int idDispositivo) {
 		return dispositivoRepository.findByIdDispositivo(idDispositivo);
