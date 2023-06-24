@@ -20,6 +20,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
+
 @Controller
 @RequestMapping("/")
 public class HomeController {
@@ -53,4 +54,5 @@ public class HomeController {
 	public RedirectView redirectToHomeIndex() {
 		return new RedirectView(ViewRouteHelper.ROUTE);
 	}
+
 }

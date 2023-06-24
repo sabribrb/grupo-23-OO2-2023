@@ -35,6 +35,7 @@ public class SecurityConfiguration {
 						"/vendor/jquery/*", "/vendor/bootstrap/js/*", "/img-tp/**","/error/**").permitAll()
 
 
+
 				.anyRequest().authenticated()
 			.and()
 				.formLogin().loginPage("/login").loginProcessingUrl("/loginprocess")

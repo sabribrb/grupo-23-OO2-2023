@@ -9,9 +9,11 @@ import com.unla.services.IMedicionBanioService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
@@ -34,17 +36,19 @@ public class BanioController {
 
     private ModelMapper modelMapper = new ModelMapper();
 
-    @GetMapping("/todos-los-banios")
-    public ModelAndView getBanios() {
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping("")
+    public ModelAndView index() {
         ModelAndView mV = new ModelAndView();
-        mV.setViewName(ViewRouteHelper.REPORTES_BANIOS);
+        mV.setViewName(ViewRouteHelper.INDEX_BANIOS);
         mV.addObject("banios", dispositivoService.getAllBanios());
         return mV;
     }
 
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/new")
-    public ModelAndView newBanio() {
+    public ModelAndView create() {
         ModelAndView mV = new ModelAndView(ViewRouteHelper.NEW_BANIO);
         mV.addObject("banio", new Banio());
         List<Edificio> edificios = edificioService.getAll();
@@ -55,22 +59,34 @@ public class BanioController {
     @PostMapping("/create")
     public RedirectView create(@ModelAttribute("banio") Banio banio,@RequestParam("edificioId") int edificioId) {
         Edificio edificio = edificioService.findByIdEdificio(edificioId);
-        banio.setNombre("dispositivo baño");
+        banio.setActivo(true);
+        banio.setEdificio(edificio);
         dispositivoService.insertOrUpdate(modelMapper.map(banio, Banio.class));
-        return new RedirectView(ViewRouteHelper.REPORTES_BANIOS);
+        return new RedirectView(ViewRouteHelper.BANIO_ROOT);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/registrar")
-    public RedirectView recordEvent(@RequestParam int id, @RequestParam(defaultValue = "true") boolean cambiar) throws Exception {
+    public ModelAndView recordEvent(@RequestParam(value = "id") int id) throws Exception {
         //agregar parametro ocupar vs liberar
         Banio banio= dispositivoService.getBanioById(id);
-        if(cambiar) medicionBanioService.cerrarPuerta(banio);
+        if(!banio.isCerrojo()) medicionBanioService.cerrarPuerta(banio);
         else {medicionBanioService.liberarBanio(banio);}
-        return new RedirectView(ViewRouteHelper.REGISTRO_BANIO);
+        return new ModelAndView(ViewRouteHelper.BANIO_EVENTO);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")//delete
+    @GetMapping("/delete")
+    public RedirectView delete(@RequestParam(value="id") int id){
+        dispositivoService.removeDispositivo(id);
+        return new RedirectView(ViewRouteHelper.BANIO_ROOT);
+    }
 
-    //TODO: baja(logica) y modificacion, filtros en el getAllBanios, mejorar vistas
+    @GetMapping("/")
+    public RedirectView redirectToBanioIndex() {
+        return new RedirectView(ViewRouteHelper.BANIO_ROOT);
+    }
+
 
 }
 

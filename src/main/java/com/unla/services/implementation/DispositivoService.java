@@ -38,6 +38,7 @@ public class DispositivoService implements IDispositivoService {
 			Dispositivo dispositivoNuevo = findByIdDispositivo(idDispositvo);
 			dispositivoNuevo.setActivo(false);
 			dispositivoRepository.save(dispositivoNuevo);
+
 	}
 
 	@Override
