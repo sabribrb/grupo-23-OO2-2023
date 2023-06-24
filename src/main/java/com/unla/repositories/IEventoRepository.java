@@ -16,16 +16,17 @@ import com.unla.entities.Evento;
 public interface IEventoRepository extends JpaRepository<Evento, Serializable> {
 
 	public abstract Evento findByIdEvento(int idEvento);
-	
+
 	@Query("SELECT e FROM Evento e JOIN FETCH e.dispositivo d WHERE d.idDispositivo = (:idDispositivo)")
-    List<Evento> findEventosByDispositivo(@Param("idDispositivo") int idDispositivo);
-	
+	List<Evento> findEventosByDispositivo(@Param("idDispositivo") int idDispositivo);
+
 	@Query("SELECT e FROM Evento e WHERE DATE(e.horaEvento) = :horaEvento")
-    List<Evento> findEventosByFecha(@Param("horaEvento") LocalDateTime horaEvento);
-	
-	@Query("SELECT e FROM Evento e WHERE e.horaEvento = :fecha AND e.dispositivo.idDispositivo = :dispositivoId")
-    List<Evento> findByHoraEventoAndDispositivoId(@Param("fecha") LocalDateTime fecha, @Param("dispositivoId") int dispositivoId);
-	
+	List<Evento> findEventosByFecha(@Param("horaEvento") LocalDateTime horaEvento);
+
+	@Query("SELECT e FROM Evento e WHERE e.horaEvento >= (:fecha) AND e.dispositivo.idDispositivo = (:dispositivoId)")
+	List<Evento> findByHoraEventoAndDispositivoId(@Param("fecha") LocalDateTime fecha,
+			@Param("dispositivoId") int dispositivoId);
+
 	@Query("SELECT b FROM Evento b")
 	public List<Evento> getAllEventos();
 }
