@@ -5,6 +5,7 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,6 +33,7 @@ public class EstacionamientoController {
 
 	private ModelMapper modelMapper = new ModelMapper();
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@GetMapping("/todos-los-estacionamientos")
 	public ModelAndView getEstacionamientos() {
 		ModelAndView mV = new ModelAndView();
@@ -40,6 +42,7 @@ public class EstacionamientoController {
 		return mV;
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@GetMapping("/new")
 	public ModelAndView newEstacionamiento() {
 		ModelAndView mV = new ModelAndView(ViewRouteHelper.NEW_ESTACIONAMIENTO);
@@ -49,6 +52,7 @@ public class EstacionamientoController {
 		return mV;
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping("/create")
 	public RedirectView create(@ModelAttribute("estacionamiento") Estacionamiento estacionamiento,
 			@RequestParam("edificioId") int edificioId) {
@@ -56,12 +60,13 @@ public class EstacionamientoController {
 		estacionamiento.setActivo(true);
 		estacionamiento.setEdificio(edificio);
 		dispositivoService.insertOrUpdate(modelMapper.map(estacionamiento, Estacionamiento.class));
-		return new RedirectView(ViewRouteHelper.REPORTES_ESTACIONAMIENTOS);
+		return new RedirectView(ViewRouteHelper.ESTACIONAMIENTO_ROOT);
 	}
 
-    @GetMapping("/delete")
-    public RedirectView delete(@RequestParam(value="id") int id){
-        dispositivoService.removeDispositivo(id);
-        return new RedirectView(ViewRouteHelper.REPORTES_ESTACIONAMIENTOS);
-    }
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@GetMapping("/delete")
+	public RedirectView delete(@RequestParam(value = "id") int id) {
+		dispositivoService.removeDispositivo(id);
+		return new RedirectView(ViewRouteHelper.ESTACIONAMIENTO_ROOT);
+	}
 }

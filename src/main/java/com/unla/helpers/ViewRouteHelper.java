@@ -2,6 +2,7 @@ package com.unla.helpers;
 
 public class ViewRouteHelper {
 
+	
   //TEMPLATES: SON DIRECCIONES DENTRO DEL PROYECTO PARA MOSTRAR LA VISTA HTML
     public final static String INDEX = "/index";
     public final static String ROUTE = "/index";
@@ -37,6 +38,8 @@ public class ViewRouteHelper {
     public final static String BANIO_ROOT = "/banios";
     public final static String ALUMBRADO_ROOT = "/alumbrado";
     public final static String ALUMBRADO_MEDICION_ROOT = "/medicion_alumbrado";
-    
+  	public final static String ESTACIONAMIENTO_ROOT = "/estacionamiento/todos-los-estacionamientos";
+	  public final static String ESTACIONAMINETO_MEDICION_ROOT = "/mediciones-estacionamiento/todas";
+
 
 }
