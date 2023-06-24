@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -33,7 +32,8 @@ public class SecurityConfiguration {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests()
 				.requestMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/vendor/bootstrap/css/*",
-						"/vendor/jquery/*", "/vendor/bootstrap/js/*", "/img-tp/**","/error/**","/alumbrado/**", "/MedicionesAlumbrado/**", "/banios/**","/mediciones-estacionamiento/**","/estacionamientos/**","/estacionamiento/**","/mediciones/**").permitAll()
+						"/vendor/jquery/*", "/vendor/bootstrap/js/*", "/img-tp/**","/error/**").permitAll()
+
 
 
 				.anyRequest().authenticated()
@@ -52,4 +52,3 @@ public class SecurityConfiguration {
         return (web) -> web.ignoring().requestMatchers("/images/**", "/js/**", "/webjars/**");
     }*/
 }
-

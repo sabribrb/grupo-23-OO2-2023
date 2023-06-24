@@ -26,5 +26,5 @@ public interface IEventoService {
 	List<Evento> findEventosByDispositivo(@Param("idDispositivo") int idDispositivo);
 
 	List<Evento> findByHoraEventoAndDispositivoId(@Param("fecha") LocalDateTime fecha,
-			@Param("dispositivoId") int dispositivoId);
+			@Param("dispositivoId") Integer dispositivoId);
 }
