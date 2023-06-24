@@ -37,13 +37,7 @@ public class DispositivoService implements IDispositivoService {
 			Dispositivo dispositivoNuevo = findByIdDispositivo(idDispositvo);
 			dispositivoNuevo.setActivo(false);
 			dispositivoRepository.save(dispositivoNuevo);
-<<<<<<< HEAD
-		
-}
-=======
-
 	}
->>>>>>> e72fe3b5bbee2d07ca9f57059c0dc04cb029de5e
 
 	@Override
 	public List<Banio> getAllBanios() {
@@ -62,7 +56,6 @@ public class DispositivoService implements IDispositivoService {
 			if (lista.get(i).isActivo() == true) {
 				aux.add(lista.get(i));
 			}
-
 		}
 		return aux;
 	}
@@ -70,7 +63,10 @@ public class DispositivoService implements IDispositivoService {
 	public List<Alumbrado> getAllAlumbrado() {
 		return dispositivoRepository.getAllAlumbrado();
 	}
-
+	
+	public Alumbrado getAlumbradoById(int id){
+		return dispositivoRepository.findAlumbradoByIdDispositivo(id);
+	}
 	@Override
 	public Dispositivo findByIdDispositivo(int idDispositivo) {
 		return dispositivoRepository.findByIdDispositivo(idDispositivo);
